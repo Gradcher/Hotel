@@ -1,0 +1,51 @@
+@import './utils/_Vars.scss';
+@import './utils/_Fonts.scss';
+
+// .filling-data {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     width: 426px;
+//     padding: 42px 114px;
+//     margin: 0 40px;
+//     background-color: red;
+
+//     &__privacy-margin {
+//         margin-bottom: 42px;
+//     }
+
+//     &__main-title {
+//         margin-bottom: 52px;
+//     }
+
+//     &__field-input-data {
+//         margin-bottom: 26px;
+//     }
+
+//     &__amount-symb {
+//         margin-bottom: 52px;
+//     }
+
+//     &__options-pass {
+//         margin-bottom: 26px;
+//     }
+// }
+
+// .main-title {
+//     color: #fff;
+//     font-family: 'RobotoBold', sans-serif;
+//     font-size: 48px;
+//     // @include adaptivFont(48, 24);
+// }
+
+// .example {
+//     user-select: none;
+//     display: grid;
+//     transition: all 0.5s;
+//     background: linear-gradient(to bottom, white, $darkShade100per);
+// }
+
+// h2 {
+//     font-family: 'RobotoLight';
+//     color: $green;
+// }

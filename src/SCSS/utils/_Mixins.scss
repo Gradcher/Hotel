@@ -1,0 +1,26 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+/* "$height: $width" — if we don't pass «height» value in function as the second argument, then «height» is settled as «width»
+Example:
+sass: size(25%)
+css result:
+  width: 25%;
+  height: 25%;
+*/
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}
