@@ -1,15 +1,17 @@
 @font-face {
-  font-family: "RobotoBold";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../FONTS/Roboto-Bold.woff2") format("woff2"),
-    url("../FONTS/Roboto-Bold.woff") format("woff");
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../FONTS/Montserrat-Regular.woff') format('woff'),
+        url('../FONTS/Montserrat-Regular.ttf') format('truetype'),
+        url('../FONTS/Montserrat-Regular.svg') format('svg');
 }
 
 @font-face {
-  font-family: "RobotoLight";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../FONTS/Roboto-Light.woff2") format("woff2"),
-    url("../FONTS/Roboto-Light.woff") format("woff");
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../FONTS/Montserrat-Bold.woff') format('woff'),
+        url('../FONTS/Montserrat-Bold.ttf') format('truetype'),
+        url('../FONTS/Montserrat-Bold.svg') format('svg');
 }

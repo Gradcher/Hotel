@@ -1,0 +1,39 @@
+include ../includes/primitives/checkbox
+include ../includes/primitives/radio
+include ../includes/primitives/toggle
+include ../includes/primitives/likeBtn
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body
+        .block-desc
+            p.block-desc__txt checkbox buttons
+            +checkbox({txt: {main: "Можно курить"}, active: true})
+            +checkbox({txt: {main: "Можно с питомцами"}})
+            +checkbox({txt: {main: "Можно пригласить гостей (до 10 человек)"}})
+
+        .block-desc
+            p.block-desc__txt radio buttons
+            +radio({txt: "Мужчина", name: "sex", active: true})
+            +radio({txt: "Женщина", name: "sex"})
+
+        .block-desc
+            p.block-desc__txt toggle
+            +toggle({txt: "Получать спецпредложения", active: true})
+            +toggle({txt: "Получать спецпредложения",})
+
+        .block-desc
+            p.block-desc__txt rich checkbox
+            +checkbox({txt: {title: "Широкий коридор", main: "Ширина коридоров в номере не менее 91 см."}})
+            +checkbox({txt: {title: "Помощник для инвалидов", main: "На 1 этаже вас встретит специалист и проводит до номера."}})
+
+        .block-desc
+            +likeBtn({amount: 2})
+            +likeBtn({amount: 11, active: true})
+
+        img(src = require("../../IMG/BONES22.jpg"))

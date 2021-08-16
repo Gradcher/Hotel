@@ -1,0 +1,88 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Убираем все лишние */
+button {
+    line-height: 1.2;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/* Убираем внутренние отступы
+Удаляем стандартную стилизацию для всех ul и ol, у которых есть атрибут class */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Убиараем подчеркивание с ссылок */
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Указываем понятную периодичность в потоке данных у article */
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Устанавливаем одинаковое семейство и размер щрифта у тегов, имеющие собственные шрифты и размеры, путем наследования от родителя(body) */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    font-size: 16px;
+}
+
+/* Современный сброс стилей CSS — https://medium.com/@stasonmars/%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B8%CC%86-%D1%81%D0%B1%D1%80%D0%BE%D1%81-css-f5816963c82b
+*/
+
+/*
+Фрилансер по жизни, сброс стилей — https://www.youtube.com/watch?v=kfOe-F64C_A
+*/

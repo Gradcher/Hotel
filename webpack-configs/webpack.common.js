@@ -8,7 +8,7 @@ const PATHS = {
     assets: 'assets/'
   }
 
-const PAGES_DIR = `${PATHS.src}/PUG/pages`
+const PAGES_DIR = `${PATHS.src}/PUG/layouts`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 
 module.exports = {
@@ -51,7 +51,9 @@ module.exports = {
             {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
                 type: 'asset/inline',
+
             },
+            /* type: 'asset/inline' is replace for inline-loader */
             {
                 test: /\.html$/i,
                 loader: 'html-loader',
@@ -68,7 +70,7 @@ module.exports = {
         //     hash: false,
         //     template: `${PATHS.src}/HTML/index.html`,// file that will be used as template
         //     filename: 'index.html'// name of output file
-        //   }),
+        //   }), — processing for only one html page
         ...PAGES.map(
             page =>
                 new HtmlWebpackPlugin({
