@@ -1,0 +1,11 @@
+mixin rateBtn(options)
+    -
+        var starAmount = options.starAmount
+        var i = 1
+
+    ul.rating
+        while 5 >= i
+            if starAmount == i
+                li.rating__item.active(data-rate=i++)
+            else
+                li.rating__item(data-rate=i++)

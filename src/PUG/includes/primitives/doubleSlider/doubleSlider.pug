@@ -1,0 +1,19 @@
+mixin doubleSlider(options)
+    -
+        var title = options.title;
+        var minValue = options.minValue;
+        var maxValue = options.maxValue;
+        var leftBaseValue = options.leftBaseValue;
+        var rightBaseValue = options.rightBaseValue;
+
+    .slider
+        .slider__header
+            h3.slider__title= title
+            ul.slider__range-value-list
+                li.slider__range-value-item#rangeValueLeft
+                li.slider__range-value-item#rangeValueRight
+        .slider__wrap
+            .slider__track
+            input.slider__range-input#rangeLeft(type="range" min=minValue max=maxValue value=leftBaseValue)
+            .slider__range-between#sliderRangeBetween
+            input.slider__range-input#rangeRight(type="range" min=minValue max=maxValue value=rightBaseValue)

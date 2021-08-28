@@ -1,0 +1,62 @@
+/*
+.switches-text {
+    position: relative;
+    max-width: 260px;
+    overflow: hidden;
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+It's a necessary component for such classes:
+.checkbox
+.radio
+.toggle
+*/
+
+.radio {
+    &__label {
+        cursor: pointer;
+    }
+
+    &__text {
+        display: inline-block;
+        padding-left: 30px;
+        color: $darkShade75per;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 20px;
+            height: 20px;
+            content: '';
+            border: 1px solid $darkShade25per;
+            border-radius: 50%;
+            transition-duration: 0.2s;
+        }
+
+        &::after {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            content: '';
+            background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+            border-radius: 50%;
+            opacity: 0;
+            transition-duration: 0.2s;
+
+            @include size(12px);
+        }
+    }
+
+    &__el {
+        display: none;
+
+        &:checked + .radio__text::before {
+            border: 1px solid $purple;
+        }
+
+        &:checked + .radio__text::after {
+            opacity: 1;
+        }
+    }
+}

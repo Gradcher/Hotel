@@ -1,0 +1,41 @@
+/* rateBtn was made based on this video:
+https://www.youtube.com/watch?v=SD7zspiPlQ4 */
+
+.rating {
+    display: flex;
+    align-items: center;
+    height: 20px;
+
+    &__item {
+        margin-top: 0;
+        font-size: 24px;
+        color: transparent;
+        list-style: none;
+        cursor: pointer;
+        background: -moz-linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        background: -webkit-linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        background: $pinkPurpleGradient;
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        /* initial: make all stars full */
+        &::before {
+            content: '\2605';
+        }
+
+        /* make until the clicked star (the rest) empty */
+        &.active ~ .rating__item::before {
+            content: '\2606';
+        }
+    }
+
+    /* on hover make all full */
+    &:hover .rating__item::before {
+        content: '\2605';
+    }
+}
+
+/* make until the hovered (the rest) empty */
+.rating__item:hover ~ .rating__item::before {
+    content: '\2606';
+}
