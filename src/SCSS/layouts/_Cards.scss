@@ -1,0 +1,43 @@
+.card {
+    // for btn--type--unfilled
+    position: relative;
+    z-index: 0;
+    //
+    width: 380px;
+    padding: 40px 30px 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: $card-shadow;
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__group-wrap {
+        margin-bottom: 20px;
+
+        & > * + * {
+            margin-top: 10px;
+        }
+    }
+
+    &__wrap-radio {
+        & > * + * {
+            margin-left: 20px;
+        }
+    }
+
+    &__solo-el-wrap-small {
+        margin-bottom: 20px;
+    }
+
+    &__solo-el-wrap-big {
+        margin-bottom: 30px;
+    }
+
+    &__btn-text-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

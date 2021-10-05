@@ -7,7 +7,7 @@
 
 /* Убираем все лишние */
 button {
-    line-height: 1.2;
+    padding: 0;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -15,9 +15,9 @@ button {
 }
 
 /* Убираем внутренние отступы
-Удаляем стандартную стилизацию для всех ul и ol, у которых есть атрибут class */
-ul[class],
-ol[class] {
+Удаляем стандартную стилизацию для всех ul и ol */
+ul,
+ol {
     padding: 0;
 }
 
@@ -50,10 +50,10 @@ body {
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: $font-montserrat;
     font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
+    font-weight: $font-weight-regular;
+    line-height: 24px;
 }
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
@@ -78,7 +78,6 @@ button,
 textarea,
 select {
     font: inherit;
-    font-size: 16px;
 }
 
 /* Современный сброс стилей CSS — https://medium.com/@stasonmars/%D1%81%D0%BE%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B8%CC%86-%D1%81%D0%B1%D1%80%D0%BE%D1%81-css-f5816963c82b
@@ -93,14 +92,23 @@ select {
 h1 {
     font-size: 24px;
     font-weight: 700;
+    line-height: 120%; // 120% = 30px
 }
 
 h2 {
     font-size: 19px;
     font-weight: 700;
+    line-height: 120%; // 120% = 24px
 }
 
 h3 {
     font-size: 12px;
     font-weight: 700;
+    line-height: 120%; // 120% = ???
+    text-transform: uppercase;
+}
+
+::placeholder {
+    color: $darkShade25per;
+    transition-duration: $base-duration;
 }

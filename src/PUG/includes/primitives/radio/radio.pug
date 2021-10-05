@@ -4,9 +4,9 @@ mixin radio(options)
         var radioName = options.name;
         var checked = options.active;
 
-    label(class = "radio__label")
+    label(class = "radio")
         if checked
             input(class = "radio__el", name=radioName, type = "radio", checked)
         else
             input(class = "radio__el", name=radioName, type = "radio")
-        span(class = "radio__text switches-text")= radioTxt
+        span(class = "radio__text")= radioTxt

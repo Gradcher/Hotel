@@ -1,14 +1,4 @@
-const range = document.getElementById('sliderRangeBetween');
-
-const sliderOne = document.getElementById('rangeLeft');
-const sliderTwo = document.getElementById('rangeRight');
-const sliderMaxValue = document.getElementById('rangeLeft').max;
-
-const displayValOne = document.getElementById('rangeValueLeft');
-const displayValTwo = document.getElementById('rangeValueRight');
-// const minGap = 0; // min interval between first and second buttons
-
-function slideOne() {
+function slideOne(sliderOne, sliderTwo, displayValOne, sliderMaxValue, range) {
   sliderOne.value = Math.min(
     parseInt(sliderOne.value),
     parseInt(sliderTwo.value)
@@ -27,7 +17,7 @@ function slideOne() {
   range.style.left = `${percent}%`;
 }
 
-function slideTwo() {
+function slideTwo(sliderTwo, sliderOne, displayValTwo, sliderMaxValue, range) {
   sliderTwo.value = Math.max(
     parseInt(sliderOne.value),
     parseInt(sliderTwo.value)
@@ -46,8 +36,53 @@ function slideTwo() {
   range.style.right = `${100 - percent}%`;
 }
 
-document.addEventListener('DOMContentLoaded', slideOne);
-document.addEventListener('DOMContentLoaded', slideTwo);
+function loadSlider() {
+  const sliders = document.querySelectorAll('.slider');
 
-sliderOne.addEventListener('input', slideOne);
-sliderTwo.addEventListener('input', slideTwo);
+  if (sliders !== null) {
+    /* eslint-disable-next-line */
+    for (const slider of sliders) {
+      const range = slider.querySelector('.slider__range-between');
+
+      const sliderOne = slider.querySelector('.slider__range-input--left');
+      const sliderTwo = slider.querySelector('.slider__range-input--right');
+      const sliderMaxValue = sliderOne.max;
+
+      const displayValOne = slider.querySelector(
+        '.slider__range-value-item--left'
+      );
+      const displayValTwo = slider.querySelector(
+        '.slider__range-value-item--right'
+      );
+      // const minGap = 0; // min interval between first and second buttons
+
+      sliderOne.addEventListener(
+        'input',
+        slideOne.bind(
+          null,
+          sliderOne,
+          sliderTwo,
+          displayValOne,
+          sliderMaxValue,
+          range
+        )
+      );
+      sliderTwo.addEventListener(
+        'input',
+        slideTwo.bind(
+          null,
+          sliderTwo,
+          sliderOne,
+          displayValTwo,
+          sliderMaxValue,
+          range
+        )
+      );
+
+      slideOne(sliderOne, sliderTwo, displayValOne, sliderMaxValue, range);
+      slideTwo(sliderTwo, sliderOne, displayValTwo, sliderMaxValue, range);
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadSlider);

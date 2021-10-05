@@ -1,30 +1,16 @@
-/*
-.switches-text {
-    position: relative;
-    max-width: 260px;
-    overflow: hidden;
-    font-size: 14px;
-    text-overflow: ellipsis;
-}
-It's a necessary component for such classes:
-.checkbox
-.radio
-.toggle
-*/
-
 .toggle {
-    &__label {
-        cursor: pointer;
-    }
+    display: block;
+    cursor: pointer;
 
     &__text {
+        position: relative;
         display: block;
         padding-left: 50px;
         color: $darkShade75per;
 
         &::before {
             position: absolute;
-            top: 0;
+            top: 2px;
             left: 0;
             min-width: 40px;
             height: 20px;
@@ -36,7 +22,7 @@ It's a necessary component for such classes:
 
         &::after {
             position: absolute;
-            top: 4px;
+            top: 6px;
             left: 4px;
             content: '';
             background: linear-gradient(
@@ -63,8 +49,8 @@ It's a necessary component for such classes:
         }
 
         &:checked + .toggle__text::after {
-            left: 22px;
-            //or transform: translateX(18px);
+            left: 24px;
+            //or transform: translateX(24px);
             background-position: right;
             transform: rotate(-90deg);
         }

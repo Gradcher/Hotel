@@ -1,0 +1,11 @@
+include ../../primitives/checkbox/checkbox.pug
+
+mixin chboxList (options)
+    -
+        var listTitle = options.listTitle
+
+    .checkbox-list
+        h3.h3-title.h3-title--margin--16= listTitle
+        form.checkbox-list__form
+            each checkbox in options.checkboxArr
+                +checkbox({txt: {title: checkbox.txt.title, main: checkbox.txt.main}, active: checkbox.active})

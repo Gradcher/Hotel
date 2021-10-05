@@ -1,6 +1,6 @@
 @mixin size($width, $height: $width) {
-  width: $width;
-  height: $height;
+    width: $width;
+    height: $height;
 }
 /* "$height: $width" — if we don't pass «height» value in function as the second argument, then «height» is settled as «width»
 Example:
@@ -11,16 +11,16 @@ css result:
 */
 
 @mixin placeholder {
-  ::-webkit-input-placeholder {
-    @content;
-  }
-  :-moz-placeholder {
-    @content;
-  }
-  ::-moz-placeholder {
-    @content;
-  }
-  :-ms-input-placeholder {
-    @content;
-  }
+    ::-webkit-input-placeholder {
+        @content;
+    }
+    :-moz-placeholder {
+        @content;
+    }
+    ::-moz-placeholder {
+        @content;
+    }
+    :-ms-input-placeholder {
+        @content;
+    }
 }

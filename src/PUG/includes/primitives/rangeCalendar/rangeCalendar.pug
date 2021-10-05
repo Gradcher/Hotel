@@ -1,0 +1,12 @@
+mixin rangeCalendar (options)
+    -
+        var startText = options.text.start
+        var endText = options.text.end
+
+    #foo.range-calendar
+        .range-calendar__item
+            h3.h3-title.h3-title--margin--5= startText
+            +textField({type: "text", modificator: "text-field--type--range-calendar", placeholder: "ДД.ММ.ГГГГ", name: "start"})
+        .range-calendar__item
+            h3.h3-title.h3-title--margin--5= endText
+            +textField({type: "text", modificator: "text-field--type--range-calendar", placeholder: "ДД.ММ.ГГГГ", name: "end"})

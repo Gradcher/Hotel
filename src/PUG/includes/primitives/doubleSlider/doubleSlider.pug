@@ -10,10 +10,10 @@ mixin doubleSlider(options)
         .slider__header
             h3.slider__title= title
             ul.slider__range-value-list
-                li.slider__range-value-item#rangeValueLeft
-                li.slider__range-value-item#rangeValueRight
+                li.slider__range-value-item.slider__range-value-item--left#rangeValueLeft
+                li.slider__range-value-item.slider__range-value-item--right#rangeValueRight
         .slider__wrap
             .slider__track
-            input.slider__range-input#rangeLeft(type="range" min=minValue max=maxValue value=leftBaseValue)
+            input.slider__range-input.slider__range-input--left#rangeLeft(type="range" min=minValue max=maxValue value=leftBaseValue)
             .slider__range-between#sliderRangeBetween
-            input.slider__range-input#rangeRight(type="range" min=minValue max=maxValue value=rightBaseValue)
+            input.slider__range-input.slider__range-input--right#rangeRight(type="range" min=minValue max=maxValue value=rightBaseValue)

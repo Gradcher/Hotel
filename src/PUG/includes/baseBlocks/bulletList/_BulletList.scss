@@ -1,0 +1,35 @@
+.bullet-list {
+    &__title {
+        margin-bottom: 16px;
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        position: relative;
+        width: 235px;
+        max-width: 100%;
+        margin-left: 20px;
+        font-size: 14px;
+        color: $darkShade75per;
+
+        &::before {
+            position: absolute;
+            top: 7px;
+            left: -20px;
+            display: inline-block;
+            margin-right: 20px;
+            content: '';
+            background-color: $darkShade25per;
+            border-radius: 50%;
+
+            @include size(10px);
+        }
+
+        & + & {
+            margin-top: 10px;
+        }
+    }
+}

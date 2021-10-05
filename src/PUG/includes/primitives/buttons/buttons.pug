@@ -1,0 +1,11 @@
+mixin buttons(options)
+    -
+        var typeName = options.type.name
+        var typeValue = options.type.value
+        var typeFunctionality = options.type.functionality
+        var text = options.text
+
+        var classes = ["btn", typeName, typeValue, typeFunctionality]
+
+    button(class = classes)
+        h3.btn__text= text

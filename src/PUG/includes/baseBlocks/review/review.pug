@@ -1,0 +1,21 @@
+include ../../primitives/likeBtn/likeBtn.pug
+
+mixin review(options)
+    -
+        var avatar = options.clientAvatar
+        var likeAmount = options.likeBtn.amount
+        var clicked = options.likeBtn.active
+        var clientName = options.txt.clientName
+        var publicationDate = options.txt.publicationDate
+        var review = options.txt.review
+
+    .review
+        .review__header
+            img.review__client-avatar(src= require(`/src/IMG/${avatar}`))
+            .review__client-info
+                p.review__client-name= clientName
+                p.review__publication-date= publicationDate
+        .review__content
+            .review__likeBtn-wrap
+                +likeBtn({amount: likeAmount, active: clicked})
+            p.review__text= review

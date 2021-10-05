@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 400;
+    font-weight: $font-weight-regular;
     src: url('../FONTS/Montserrat-Regular.woff') format('woff'),
         url('../FONTS/Montserrat-Regular.ttf') format('truetype'),
         url('../FONTS/Montserrat-Regular.svg') format('svg');

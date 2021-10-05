@@ -4,14 +4,13 @@ mixin checkbox(options)
         var mainTxt = options.txt.main;
         var checked = options.active;
 
-
-    label(class = "checkbox__label")
+    label(class = "checkbox")
         if checked
             input(class = "checkbox__el", type = "checkbox", checked)
         else
             input(class = "checkbox__el", type = "checkbox")
         if titleTxt
-            span(class = "checkbox__text checkbox__text--title switches-text")= titleTxt
+            span(class = "checkbox__text checkbox__text--title")= titleTxt
             p(class = "checkbox__desc")= mainTxt
         else
-            span(class = "checkbox__text switches-text")= mainTxt
+            span(class = "checkbox__text")= mainTxt

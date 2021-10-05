@@ -1,0 +1,27 @@
+include ../../primitives/textField/textField.pug
+include ../../primitives/radio/radio.pug
+include ../../primitives/toggle/toggle.pug
+include ../../primitives/buttons/buttons.pug
+
+.card.registration
+    h1.card__title Регистрация аккаунта
+    form.card__form(method="post")
+        .card__group-wrap
+            +textField({type: "text", placeholder: "Имя", name: "user-name"})
+            +textField({type: "text", placeholder: "Фамилия", name: "user-second-name"})
+            .card__wrap-radio
+                +radio({txt: "Мужчина", name: "sex", active: true})
+                +radio({txt: "Женщина", name: "sex"})
+        h3.h3-title.h3-title--margin--5 дата рождения
+        .card__solo-el-wrap-big
+            +textField({type: "text", placeholder: "ДД.ММ.ГГГГ", name: "foo"})
+        h3.h3-title.h3-title--margin--5 данные для входа в сервис
+        .card__group-wrap
+            +textField({type: "email", placeholder: "Email", name: "email-address"})
+            +textField({type: "password", placeholder: "Пароль", name: "passsword"})
+            +toggle({txt: "Получать спецпредложения"})
+    .card__solo-el-wrap-big
+        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "перейти к оплате"})
+    .card__btn-text-wrap
+        p.card__text Уже есть аккаунт на Toxin
+        +buttons({type: {name: "btn--type--unfilled"}, text: "Войти"})

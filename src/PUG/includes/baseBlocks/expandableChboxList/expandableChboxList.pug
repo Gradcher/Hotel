@@ -1,0 +1,12 @@
+include ../../primitives/checkbox/checkbox.pug
+
+mixin expandableChboxList(options)
+    -
+        var title = options.title
+
+    .expandable-chbox
+        .expandable-chbox__header
+            h3.h3-title= title
+        .expandable-chbox__list
+            each element in options.checkboxArr
+                +checkbox({txt: {main: element.txt.main}, active: element.active})

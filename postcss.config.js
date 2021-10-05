@@ -1,18 +1,19 @@
 module.exports = {
-    plugins: [
-      require('autoprefixer'),
-      require('css-mqpacker'),
-      require("cssnano")({
-          preset: [
-              "default", {
-                  discardComments: {
-                      removeAll: true
-                  }
-              }
-          ]
-      })
-    ]
-  }
+  plugins: [
+    require('autoprefixer'),
+    require('css-mqpacker'),
+    require('cssnano')({
+      preset: [
+        'default',
+        {
+          discardComments: {
+            removeAll: true,
+          },
+        },
+      ],
+    }),
+  ],
+};
 /* Этот файл должен находиться в корне проекта для корректной работы.
 Попытка поместить этот файл в папку JS и указать путь для postcss loader-у как у парня в видосе у меня не получилось.
 Link to the video: https://www.youtube.com/watch?v=qqTIqwQX8nc&t=821s

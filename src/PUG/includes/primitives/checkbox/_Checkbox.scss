@@ -1,24 +1,9 @@
-/*
-.switches-text {
-    position: relative;
-    max-width: 260px;
-    overflow: hidden;
-    font-size: 14px;
-    text-overflow: ellipsis;
-}
-It's a necessary component for such classes:
-.checkbox
-.radio
-.toggle
-*/
-
 .checkbox {
-    &__label {
-        cursor: pointer;
-    }
+    display: block;
+    cursor: pointer;
 
     &__desc {
-        max-width: 260px;
+        line-height: 14px;
         padding-left: 30px;
         margin-top: 0;
         overflow: hidden;
@@ -28,20 +13,23 @@ It's a necessary component for such classes:
     }
 
     &__text {
+        position: relative;
         display: block;
         padding-left: 30px;
+        line-height: 18px;
+        color: $darkShade50per;
 
         &::before {
             position: absolute;
             top: 0;
             left: 0;
-            min-width: 20px;
-            height: 20px;
             margin-right: 10px;
             content: '';
             border: 1px solid $darkShade25per;
             border-radius: 4px;
-            transition-duration: 0.2s;
+            transition-duration: $base-duration;
+
+            @include size(20px);
         }
 
         &::after {
@@ -51,7 +39,7 @@ It's a necessary component for such classes:
             display: block;
             content: url('../SVG/tick-ico.svg');
             opacity: 0;
-            transition-duration: 0.2s;
+            transition-duration: $base-duration;
             transform: translate(-50%, -50%);
         }
 

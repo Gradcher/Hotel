@@ -1,0 +1,88 @@
+.btn {
+    &__text {
+        text-transform: uppercase;
+    }
+
+    &--type--filled {
+        height: 44px;
+        background: $pinkPurpleGradient;
+        border-radius: 25px;
+        transition-duration: $base-duration;
+
+        & > .btn__text {
+            color: #fff;
+        }
+
+        &--sml {
+            min-width: 99px;
+        }
+
+        &--lg {
+            position: relative;
+            width: 320px;
+            min-width: 220px;
+            max-width: 100%;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                right: 14px;
+                bottom: 0;
+                margin: auto;
+                content: '';
+                background-image: url('/src/SVG/arrow-ico.svg');
+                background-position: center;
+
+                @include size(16px);
+            }
+        }
+    }
+
+    &--type--unfilled {
+        position: relative;
+        box-sizing: border-box;
+        min-width: 99px;
+        height: 44px;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: solid 2px transparent;
+        border-radius: 25px;
+
+        & > .btn__text {
+            color: $purple;
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            margin: -2px;
+            content: '';
+            background: $pinkPurpleGradient;
+            border-radius: inherit;
+            transition-duration: $base-duration;
+        }
+    }
+
+    &--type--without-border {
+        width: auto;
+
+        & > .btn__text {
+            color: $purple;
+            transition-duration: $base-duration;
+        }
+
+        &:hover.btn--type--without-border > .btn__text {
+            color: $darkShade50per;
+        }
+    }
+}
+
+.btn--type--filled--sml:hover.btn--type--filled--sml,
+.btn--type--filled--lg:hover.btn--type--filled--lg,
+.btn--type--unfilled:hover.btn--type--unfilled::before {
+    opacity: 0.5;
+}

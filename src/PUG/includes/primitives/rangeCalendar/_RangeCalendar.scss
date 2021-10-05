@@ -1,0 +1,7 @@
+.range-calendar {
+    display: flex;
+
+    &__item + .range-calendar__item {
+        margin-left: 20px;
+    }
+}

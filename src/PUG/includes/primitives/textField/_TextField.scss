@@ -1,0 +1,77 @@
+.text-field {
+    position: relative;
+    box-sizing: border-box;
+    width: 320px;
+    max-width: 100%;
+    cursor: pointer; //works only for icon, because all part it's input
+
+    &__input {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        height: 44px;
+        padding: 0 15px;
+        border: 1px solid $darkShade25per;
+        border-radius: 4px;
+        transition-duration: $base-duration;
+
+        &:hover,
+        &:focus {
+            border-color: $darkShade50per;
+            outline: none;
+
+            &::placeholder {
+                color: $darkShade75per;
+            }
+        }
+    }
+}
+
+.text-field.text-field--type--subscr {
+    width: 266px;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        transition-duration: $base-duration;
+        background: {
+            image: url('/src/SVG/color-arrow-ico.svg');
+            repeat: no-repeat;
+            position: center;
+        }
+
+        @include size(44px);
+        // from top to bottom, and from left to right (14px + 16px + 14px)
+        // Using add space we expand area for cursor: pointer
+    }
+
+    & > .text-field__input {
+        padding: 0 calc(14px + 16px + 14px) 0 15px;
+    }
+}
+
+.text-field--type--range-calendar {
+    width: 150px;
+    min-width: 150px;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 16px;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        transition-duration: $base-duration;
+        background: {
+            image: url('/src/SVG/angle-down-ico.svg');
+            repeat: no-repeat;
+            position: center;
+        }
+
+        @include size(12px);
+    }
+}

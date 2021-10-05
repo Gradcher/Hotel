@@ -1,0 +1,61 @@
+mixin dropdown(options)
+    -
+        var dropdownType = options.type
+        var dropdownTitle = options.dropdownTitle
+
+    h3.h3-title.h3-title--margin--5= dropdownTitle
+    if dropdownType === "rooms"
+        div(class=`dropdown dropdown--type--${dropdownType}`)
+            button.dropdown__header
+                p.dropdown__result-txt Сколько комнат
+            .dropdown__content
+                ul.dropdown__list#dropdownList
+                    li.dropdown__item
+                        h3.dropdown__item-title Спальни
+                        .dropdown__amount-block
+                            button.dropdown__amount-btn.dropdown__amount-btn--minus
+                            span.dropdown__amount-numb 0
+                            button.dropdown__amount-btn.dropdown__amount-btn--plus
+                    li.dropdown__item
+                        h3.dropdown__item-title Кровати
+                        .dropdown__amount-block
+                            button.dropdown__amount-btn.dropdown__amount-btn--minus
+                            span.dropdown__amount-numb 0
+                            button.dropdown__amount-btn.dropdown__amount-btn--plus
+                    li.dropdown__item
+                        h3.dropdown__item-title Ванные комнаты
+                        .dropdown__amount-block
+                            button.dropdown__amount-btn.dropdown__amount-btn--minus
+                            span.dropdown__amount-numb 0
+                            button.dropdown__amount-btn.dropdown__amount-btn--plus
+                .dropdown__footer-btns-wrap
+                    +buttons({type: {name: "btn--type--without-border", value: "", functionality: "btn--type--dropdown-btn-clear"}, text: "Очистить", active: false})
+                    +buttons({type: {name: "btn--type--without-border", value: "", functionality: ""}, text: "Применить", active: false})
+
+    else
+        div(class=`dropdown dropdown--type--${dropdownType}`)
+            button.dropdown__header
+                p.dropdown__result-txt Сколько гостей
+            .dropdown__content
+                ul.dropdown__list
+                    li.dropdown__item
+                        h3.dropdown__item-title Взрослые
+                        .dropdown__amount-block
+                            button.dropdown__amount-btn.dropdown__amount-btn--minus
+                            span.dropdown__amount-numb 0
+                            button.dropdown__amount-btn.dropdown__amount-btn--plus
+                    li.dropdown__item
+                        h3.dropdown__item-title Дети
+                        .dropdown__amount-block
+                            button.dropdown__amount-btn.dropdown__amount-btn--minus
+                            span.dropdown__amount-numb 0
+                            button.dropdown__amount-btn.dropdown__amount-btn--plus
+                    li.dropdown__item
+                        h3.dropdown__item-title Младенцы
+                        .dropdown__amount-block
+                            button.dropdown__amount-btn.dropdown__amount-btn--minus
+                            span.dropdown__amount-numb 0
+                            button.dropdown__amount-btn.dropdown__amount-btn--plus
+                .dropdown__footer-btns-wrap
+                    +buttons({type: {name: "btn--type--without-border", value: "", functionality: "btn--type--dropdown-btn-clear"}, text: "Очистить", id: "dropdownBtnClear", active: false})
+                    +buttons({type: {name: "btn--type--without-border", value: "", functionality: ""}, text: "Применить", active: false})

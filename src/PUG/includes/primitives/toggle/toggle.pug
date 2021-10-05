@@ -3,9 +3,9 @@ mixin toggle(options)
         var toggleTxt = options.txt;
         var checked = options.active;
 
-    label(class = "toggle__label")
+    label(class = "toggle")
         if checked
             input(class = "toggle__el", type = "checkbox", checked)
         else
             input(class = "toggle__el", type = "checkbox")
-        span(class = "toggle__text switches-text")= toggleTxt
+        span(class = "toggle__text")= toggleTxt

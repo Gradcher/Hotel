@@ -1,9 +1,21 @@
+// Primitives
 include ../includes/primitives/checkbox/checkbox.pug
 include ../includes/primitives/radio/radio.pug
 include ../includes/primitives/toggle/toggle.pug
 include ../includes/primitives/likeBtn/likeBtn.pug
 include ../includes/primitives/doubleSlider/doubleSlider.pug
 include ../includes/primitives/rateBtn/rateBtn.pug
+include ../includes/primitives/pagination/pagination.pug
+include ../includes/primitives/buttons/buttons.pug
+include ../includes/primitives/dropdown/dropdown.pug
+include ../includes/primitives/textField/textField.pug
+include ../includes/primitives/rangeCalendar/rangeCalendar.pug
+// Base blocks
+include ../includes/baseBlocks/expandableChboxList/expandableChboxList.pug
+include ../includes/baseBlocks/chboxList/chboxList.pug
+include ../includes/baseBlocks/bulletList/bulletList.pug
+include ../includes/baseBlocks/review/review.pug
+include ../includes/baseBlocks/advantages/advantages.pug
 
 doctype html
 html(lang="en")
@@ -15,39 +27,106 @@ html(lang="en")
         include ../includes/baseBlocks/script
     body
         .logo-wrap
-            img(src = require("../../SVG/logo.svg"))
+            img.logo(src = require("../../SVG/logo.svg"))
 
-        .block-desc
-            p.block-desc__txt checkbox buttons
-            +checkbox({txt: {main: "Можно курить"}, active: true})
-            +checkbox({txt: {main: "Можно с питомцами"}})
-            +checkbox({txt: {main: "Можно пригласить гостей (до 10 человек)"}})
+        .form-elements-wrap
+            .block-desc
+                +chboxList({listTitle: "checkbox buttons", checkboxArr: [
+                    {txt: {main: "Можно курить"}, active: true},
+                    {txt: {main: "Можно с питомцами"}, active: false},
+                    {txt: {main: "Можно пригласить гостей (до 10 человек)"}, active: false}
+                ]})
 
-        .block-desc
-            p.block-desc__txt radio buttons
-            +radio({txt: "Мужчина", name: "sex", active: true})
-            +radio({txt: "Женщина", name: "sex"})
+            .block-desc
+                h3.h3-title.h3-title--margin--16 radio buttons
+                +radio({txt: "Мужчина", name: "sex", active: true})
+                +radio({txt: "Женщина", name: "sex"})
 
-        .block-desc
-            p.block-desc__txt toggle
-            +toggle({txt: "Получать спецпредложения", active: true})
-            +toggle({txt: "Получать спецпредложения",})
+            .block-desc
+                h3.h3-title.h3-title--margin--16 toggle
+                +toggle({txt: "Получать спецпредложения", active: true})
+                +toggle({txt: "Получать спецпредложения"})
 
-        .block-desc
-            p.block-desc__txt rich checkbox
-            +checkbox({txt: {title: "Широкий коридор", main: "Ширина коридоров в номере не менее 91 см."}})
-            +checkbox({txt: {title: "Помощник для инвалидов", main: "На 1 этаже вас встретит специалист и проводит до номера."}})
+            .block-desc
+                +chboxList({listTitle: "rich checkbox buttons", checkboxArr: [
+                    {txt: {title: "Широкий коридор", main: "Ширина коридоров в номере не менее 91 см."}, active: false},
+                    {txt: {title: "Помощник для инвалидов", main: "На 1 этаже вас встретит специалист и проводит до номера."}, active: false}
+                ]})
 
-        .block-desc
-            +likeBtn({amount: 2})
-            +likeBtn({amount: 11, active: true})
+            .block-desc
+                h3.h3-title.h3-title--margin--16 like button
+                +likeBtn({amount: 2})
+                +likeBtn({amount: 12, active: true})
 
-        .block-desc
-            +doubleSlider({title: "Range Slider", minValue: 0, maxValue: 15000, leftBaseValue: 5000, rightBaseValue: 10000})
+            .block-desc
+                +doubleSlider({title: "Range Slider", minValue: 0, maxValue: 15000, leftBaseValue: 5000, rightBaseValue: 10000})
 
-        .block-desc
-            +rateBtn({starAmount: 4})
-            +rateBtn({starAmount: 5})
+            .block-desc
+                h3.h3-title.h3-title--margin--16 rate button
+                +rateBtn({starAmount: 4})
+                +rateBtn({starAmount: 5})
 
+            .block-desc
+                h3.h3-title.h3-title--margin--16 pagination
+                +pagination({txt: "1 – 12 из 100+ вариантов аренды"})
 
-        img(src = require("../../IMG/BONES22.jpg"))
+            .block-desc
+                +review({clientAvatar: "reviewClientAvatar.jpg", likeBtn: {amount: 12, active: true}, txt: {clientName: "Мурад Сарафанов", publicationDate: "5 дней назад", review: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."}})
+
+            .block-desc
+                h3.h3-title.h3-title--margin--16 buttons
+                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--sml"}, text: "Click me"})
+                +buttons({type: {name: "btn--type--unfilled"}, text: "Click me"})
+                +buttons({type: {name: "btn--type--without-border"}, text: "Click me"})
+                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg"}, text: "перейти к оплате"})
+
+            .block-desc
+                +bulletList({title: "bullet list", elementsArr: [
+                    {text: "Нельзя с питомцами"},
+                    {text: "Без вечеринок и мероприятий"},
+                    {text: "Время прибытия — после 13:00, а выезд до 12:00"}
+                ]})
+
+            .block-desc
+                +advantage({txt: {title: "Комфорт", descr: "Шумопоглощающие стены"}, nameIcon: "smile"})
+                +advantage({txt: {title: "Удобство", descr: "Окно в каждой из спален"}, nameIcon: "city"})
+
+            .block-desc
+                +dropdown({dropdownTitle: "dropdown", type: "rooms", expanded: true})
+
+            .block-desc
+                +dropdown({dropdownTitle: "dropdown", type: "guests", expanded: true})
+
+            .block-desc
+                +expandableChboxList({title: "expandable checkbox list", checkboxArr: [
+                    {txt: {main: "Завтрак"}, active: false},
+                    {txt: {main: "Письменный стол"}, active: true},
+                    {txt: {main: "Стул для кормления"}, active: true},
+                    {txt: {main: "Кроватка"}, active: true},
+                    {txt: {main: "Телевизор"}, active: false},
+                    {txt: {main: "Шампунь"}, active: false}
+                ]})
+
+            .block-desc
+                h3.h3-title.h3-title--margin--5 subscription text field
+                +textField({type: "email", modificator: "text-field--type--subscr", placeholder: "Email", name: "email-address"})
+            .block-desc
+                h3.h3-title.h3-title--margin--5 subscription text field
+                +textField({type: "email", placeholder: "Email", name: "email-address"})
+            .block-desc
+                h3.h3-title.h3-title--margin--5 subscription text field
+                +textField({type: "text", placeholder: "Имя", name: "user-name"})
+            .block-desc
+                h3.h3-title.h3-title--margin--5 subscription text field
+                +textField({type: "text", placeholder: "Фамилия", name: "user-second-name"})
+            .block-desc
+                h3.h3-title.h3-title--margin--5 subscription text field
+                +textField({type: "text", placeholder: "ДД.ММ.ГГГГ", name: "foo"})
+            .block-desc
+                h3.h3-title.h3-title--margin--5 subscription text field
+                +textField({type: "password", placeholder: "Пароль", name: "passsword"})
+
+            .block-desc
+                +rangeCalendar({text: {start: "Date dropdown", end: "Date dropdown"}})
+
+            img(src = require("../../IMG/BONES.jpg"))

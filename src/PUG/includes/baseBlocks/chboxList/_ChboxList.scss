@@ -1,0 +1,13 @@
+.checkbox-list {
+    width: 260px;
+    max-width: 100%;
+    overflow: hidden;
+
+    &__h3-title {
+        margin-bottom: 16px;
+    }
+
+    &__form > * + * {
+        margin-top: 13px;
+    }
+}

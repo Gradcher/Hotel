@@ -1,0 +1,70 @@
+/* rateBtn was made based on this video:
+https://www.youtube.com/watch?v=d2ve7xQNco8 */
+
+.pagination {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__list {
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin-bottom: 9px;
+    }
+
+    &__item {
+        margin-top: 0;
+        line-height: 40px;
+        color: $darkShade50per;
+        text-align: center;
+        list-style: none;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 50%;
+
+        @include size(40px);
+
+        &--dots {
+            cursor: default;
+        }
+
+        &--icon {
+            position: relative;
+            color: #fff;
+            background: $blueGreenGradient;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                content: '';
+                background-image: url('/src/SVG/arrow-ico.svg');
+                background-position: center;
+
+                @include size(16px);
+            }
+
+            &--prev::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__descr {
+        font-size: 14px;
+        color: $darkShade75per;
+    }
+}
+
+.pagination__item--numb:hover,
+.pagination__item--active {
+    font-weight: 700;
+    color: #fff;
+    background: $pinkPurpleGradient;
+}

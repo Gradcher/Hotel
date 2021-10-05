@@ -1,39 +1,63 @@
+//Main
 @import './utils/_Vars.scss';
 @import './utils/_Fonts.scss';
 @import './utils/_Mixins.scss';
 @import './utils/_StandartProp.scss';
+// Primitives
+@import '../PUG/includes/primitives/toggle/Toggle';
+@import '../PUG/includes/primitives/radio/Radio';
+@import '../PUG/includes/primitives/checkbox/Checkbox';
+@import '../PUG/includes/primitives/likeBtn/LikeBtn';
+@import '../PUG/includes/primitives/rateBtn/RateBtn';
+@import '../PUG/includes/primitives/doubleSlider/DoubleSlider.scss';
+@import '../PUG/includes/primitives/pagination/Pagination.scss';
+@import '../PUG/includes/primitives/buttons/Buttons.scss';
+@import '../PUG/includes/primitives/dropdown/Dropdown.scss';
+@import '../PUG/includes/primitives/textField/TextField.scss';
+@import '../PUG/includes/primitives/rangeCalendar/RangeCalendar.scss';
+// Base blocks
+@import '../PUG/includes/baseBlocks/expandableChboxList/ExpandableChboxList.scss';
+@import '../PUG/includes/baseBlocks/chboxList/ChboxList.scss';
+@import '../PUG/includes/baseBlocks/bulletList/BulletList.scss';
+@import '../PUG/includes/baseBlocks/review/Review.scss';
+@import '../PUG/includes/baseBlocks/advantages/Advantages.scss';
+@import '../PUG/includes/baseBlocks/registration/Registration.scss';
+@import '../PUG/includes/baseBlocks/login/Login.scss';
+@import '../PUG/includes/baseBlocks/roomSearch/RoomSearch.scss';
+//Layouts
+@import '../SCSS/layouts/Cards.scss';
+// Datepicker
+/* Site — https://mymth.github.io/vanillajs-datepicker */
+// @import '/node_modules/vanillajs-datepicker/sass/datepicker.scss'; // — base calendar SCSS
+@import '../PUG/includes/primitives/calendar/datepicker.scss';
 
-.block-desc {
-    margin: 0 0 40px 10px;
-
-    & * + * {
-        margin-top: 14px;
+.h3-title {
+    &--margin--16 {
+        margin-bottom: 16px;
     }
 
-    &__txt {
-        margin-bottom: 16px;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
+    &--margin--5 {
+        margin-bottom: 5px;
     }
 }
 
-.switches-text {
-    position: relative;
-    max-width: 260px;
-    overflow: hidden;
-    font-size: 14px;
-    text-overflow: ellipsis;
+.block-desc {
+    margin: 0 20px 40px 10px;
+}
+
+.form-elements-wrap {
+    margin: 100px 0 0 100px;
 }
 
 .logo-wrap {
+    position: absolute;
     margin: 30px 0 0 30px;
 }
 
 .wrap-color-and-type {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 100px;
+    column-gap: 50px;
     padding: 0 30px;
     margin-top: 67px;
 }
@@ -91,7 +115,7 @@
     }
 
     &__color-name {
-        font-weight: 400;
+        font-weight: $font-weight-regular;
     }
 }
 
@@ -125,10 +149,3 @@
         text-overflow: ellipsis;
     }
 }
-
-@import '../PUG/includes/primitives/toggle/Toggle';
-@import '../PUG/includes/primitives/radio/Radio';
-@import '../PUG/includes/primitives/checkbox/Checkbox';
-@import '../PUG/includes/primitives/likeBtn/LikeBtn';
-@import '../PUG/includes/primitives/rateBtn/RateBtn';
-@import '../PUG/includes/primitives/doubleSlider/DoubleSlider.scss';

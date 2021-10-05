@@ -1,0 +1,51 @@
+.review {
+    &__header {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    &__client-avatar {
+        box-sizing: border-box;
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
+    }
+
+    &__client-name {
+        margin-bottom: 2px;
+        font-size: 14px;
+        font-weight: 700;
+        color: $darkShade75per;
+    }
+
+    &__publication-date {
+        font-size: 14px;
+        font-weight: $font-weight-regular;
+        color: $darkShade75per;
+    }
+
+    &__content {
+        display: flex;
+    }
+
+    &__likeBtn-wrap {
+        min-width: 48px;
+        margin-right: 10px;
+
+        & > .like-btn {
+            margin: auto;
+        }
+    }
+
+    &__text {
+        max-width: 660px;
+        overflow: hidden;
+        font-size: 14px;
+        font-weight: $font-weight-regular;
+        color: $darkShade75per;
+        text-overflow: ellipsis;
+    }
+}

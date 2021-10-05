@@ -1,0 +1,501 @@
+//== foundational variables ==//
+$black: hsl(0, 0%, 4%) !default;
+$white: hsl(0, 0%, 100%) !default;
+$light: hsl(0, 0%, 96%) !default; // white-ter
+$dark: hsl(0, 0%, 21%) !default; // grey-darker
+$link: $purple !default; // purple
+
+$grey-dark: lighten($black, 25%) !default;
+$grey-light: darken($light, 25%) !default;
+$grey-lighter: darken($light, 10%) !default;
+
+//== datepicker variables ==//
+$dp-background-color: $white !default;
+$dp-border: 1px solid $darkShade25per;
+$dp-border-radius: 4px !default;
+$dp-border-radius-small: 2px !default;
+$dp-border-radius-circle: 50% !default;
+$dp-line-height-base: 1.5 !default;
+$dp-font-size-normal: 1rem !default;
+$dp-font-size-small: 12px !default;
+$dp-font-weight-semibold: 600 !default;
+$dp-font-weight-bold: 700 !default;
+$dp-dropdown-offset: 6px !default;
+// $dp-dropdown-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1) !default;
+$dp-dropdown-z: 20 !default;
+$dp-cell-selected-highlight-color: $pinkPurpleGradient !default; // blue
+
+$dp-title-background-color: $light !default;
+
+$dp-cell-size-base: 40px !default;
+$dp-cell-focus-background-color: darken($light, 5%) !default;
+$dp-cell-prevnext-color: hsl(0, 0%, 48%) !default; // grey
+$dp-cell-disabled-color: $grey-lighter !default;
+$dp-cell-selected-background-color: $link !default;
+$dp-cell-selected-color: #fff !default; // link(blue)-invert
+$dp-cell-selected-font-weight: 600 !default;
+$dp-cell-today-background-color: $blueGreenGradient !default; // turquoise (primary)
+$dp-cell-today-color: #fff !default; // turquoise-invert
+$dp-cell-highlighted-background-color: $light !default;
+$dp-range-start-end-background-color: $grey-light !default;
+$dp-range-start-end-color: $dp-cell-selected-color !default;
+$dp-range-background-color: $grey-lighter !default;
+$dp-range-today-background-color: $dp-cell-today-background-color !default;
+$dp-week-color: $grey-light !default;
+
+$dp-footer-background-color: $light !default;
+
+$dp-input-in-edit-border-color: darken($link, 5%) !default;
+$dp-input-in-edit-focus-box-shadow-size: 0 0 0.25em 0.25em !default;
+
+//== non-configurable variables ==//
+$dp-cell-shrink-threshold: $dp-cell-size-base * 10; // = 8 * 1.25
+$dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
+
+//== mixins ==//
+@import 'mixins';
+
+//== styles ==//
+.datepicker {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.datepicker-dropdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $dp-dropdown-z;
+    padding-top: $dp-dropdown-offset;
+
+    &.datepicker-orient-top {
+        padding-top: 0;
+        padding-bottom: $dp-dropdown-offset;
+    }
+}
+
+.datepicker-picker {
+    display: inline-block;
+    width: 320px;
+    background-color: $dp-background-color;
+    border: $dp-border;
+    border-radius: $dp-border-radius;
+
+    .datepicker-dropdown & {
+        box-shadow: $primitives-shadow;
+    }
+
+    span {
+        display: block;
+        text-align: center;
+        cursor: default;
+        user-select: none;
+        border: 0;
+        -webkit-touch-callout: none;
+    }
+}
+
+.day {
+    border-radius: $dp-border-radius-circle;
+}
+
+.month,
+.decade,
+.year {
+    border-radius: $dp-border-radius;
+}
+
+.datepicker-main {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.datepicker-footer {
+}
+
+%flex-container {
+    display: flex;
+}
+
+%flex-wrap {
+    flex-wrap: wrap;
+}
+
+%flex-basis-day {
+    flex-basis: percentage(1 / 7);
+}
+
+%flex-basis-month-year {
+    flex-basis: 25%;
+}
+
+%datepicker-cell-height {
+    height: $dp-cell-size-base;
+    line-height: $dp-cell-size-base;
+}
+
+.datepicker-title {
+    padding: 0.375rem 0.75rem;
+    font-weight: $dp-font-weight-bold;
+    text-align: center;
+    background-color: $dp-title-background-color;
+}
+
+.datepicker-controls {
+    align-items: center;
+    justify-content: center;
+
+    @extend %flex-container;
+
+    .datepicker-header & {
+        padding: 9px 8px 20px 8px;
+    }
+
+    @if mixin-exists(dp-button) {
+        @include dp-button;
+    } @else {
+        .button {
+            &[disabled] {
+                cursor: not-allowed;
+            }
+
+            .datepicker-header & {
+                border-color: transparent;
+
+                &:hover {
+                    background-color: darken($white, 2.5%);
+                }
+
+                &:focus {
+                    &:not(:active) {
+                        box-shadow: 0 0 0 0.125em rgba($white, 0.25);
+                    }
+                }
+
+                &:active {
+                    background-color: darken($white, 5%);
+                }
+
+                &[disabled] {
+                    box-shadow: none;
+                }
+            }
+
+            .datepicker-footer & {
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+    .view-switch {
+        padding: 0 12px;
+        font-family: $font-montserrat;
+        font-size: 19px;
+        font-weight: $font-weight-bold;
+    }
+
+    .prev-btn,
+    .next-btn {
+        border-radius: $dp-border-radius-circle;
+        background: {
+            image: url('/src/SVG/pink-arrow-ico.svg');
+            repeat: no-repeat;
+            position: center;
+        }
+
+        @include size(40px);
+
+        &.disabled {
+            visibility: hidden;
+        }
+    }
+
+    .prev-btn {
+        margin-right: auto;
+        transform: rotate(180deg);
+    }
+
+    .next-btn {
+        margin-left: auto;
+    }
+}
+
+.datepicker-view {
+    @extend %flex-container;
+
+    .days-of-week {
+        @extend %flex-container;
+    }
+
+    .dow {
+        width: 40px;
+        font-family: $font-montserrat;
+        font-size: $dp-font-size-small;
+        font-weight: $font-weight-bold;
+        line-height: 40px;
+        color: $purple;
+
+        @extend %flex-basis-day;
+    }
+
+    .week {
+        width: $dp-cell-size-base;
+        font-size: $dp-font-size-small;
+        color: $dp-week-color;
+
+        @extend %datepicker-cell-height;
+
+        @media (max-width: $dp-cell-shrink-threshold) {
+            width: $dp-cell-shrinked-width;
+        }
+    }
+}
+
+.datepicker-grid {
+    @extend %flex-container;
+    @extend %flex-wrap;
+
+    width: $dp-cell-size-base * 7;
+
+    @media (max-width: $dp-cell-shrink-threshold) {
+        .calendar-weeks + .days & {
+            width: $dp-cell-shrinked-width * 7;
+        }
+    }
+}
+
+.datepicker-cell {
+    font-size: $dp-font-size-small;
+    color: $darkShade50per;
+
+    @extend %datepicker-cell-height;
+
+    &:not(.disabled):hover {
+        background-color: darken($dp-background-color, 2.5%);
+        cursor: pointer;
+    }
+
+    &.focused:not(.selected) {
+        background-color: $dp-cell-focus-background-color;
+    }
+
+    &.selected {
+        &,
+        &:hover {
+            font-weight: $dp-cell-selected-font-weight;
+            color: $dp-cell-selected-color;
+            background: $dp-cell-selected-highlight-color;
+        }
+    }
+
+    &.disabled {
+        color: $dp-cell-disabled-color;
+    }
+
+    &.prev,
+    &.next {
+        &:not(.disabled) {
+            color: $darkShade25per;
+        }
+
+        &.selected {
+            color: darken($dp-cell-selected-color, 10%);
+        }
+    }
+
+    &.highlighted:not(.selected):not(.range):not(.today) {
+        background-color: $dp-cell-highlighted-background-color;
+        border-radius: 0;
+
+        &:not(.disabled):hover {
+            background-color: darken(
+                $dp-cell-highlighted-background-color,
+                2.5%
+            );
+        }
+
+        &.focused {
+            background-color: $dp-cell-focus-background-color;
+        }
+    }
+
+    &.today {
+        &:not(.selected) {
+            background: $dp-cell-today-background-color;
+
+            &:not(.disabled) {
+                color: $dp-cell-today-color;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &%range-start-end-common {
+        background: $pinkPurpleGradient;
+        color: $light;
+        font-weight: $font-weight-bold;
+    }
+
+    &%range-start-end-focused-common {
+        background-color: darken($dp-range-start-end-background-color, 2.5%);
+    }
+
+    &.range-start:not(.month):not(.decade):not(.year) {
+        position: relative;
+        z-index: 1;
+        border-radius: $dp-border-radius-circle;
+
+        &:not(.selected) {
+            @extend %range-start-end-common;
+        }
+
+        &.focused:not(.selected) {
+            @extend %range-start-end-focused-common;
+        }
+
+        &:not(.range-end)::after {
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: $dp-cell-size-base / 2;
+            height: $dp-cell-size-base;
+            content: '';
+            background: $pacePinkPurpleGradient;
+        }
+    }
+
+    &.range-end:not(.month):not(.decade):not(.year) {
+        position: relative;
+        z-index: 1;
+        border-radius: $dp-border-radius-circle;
+
+        &:not(.selected) {
+            @extend %range-start-end-common;
+        }
+
+        &.focused:not(.selected) {
+            @extend %range-start-end-focused-common;
+        }
+
+        &:not(.range-start)::after {
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $dp-cell-size-base / 2;
+            height: $dp-cell-size-base;
+            content: '';
+            background: $pacePinkPurpleGradient;
+        }
+    }
+
+    &.range {
+        background: $pacePinkPurpleGradient;
+        border-radius: 0;
+
+        &:not(.disabled):not(.focused):not(.today):hover {
+            background-color: darken($dp-range-background-color, 2.5%);
+        }
+
+        &.disabled {
+            color: darken($dp-range-background-color, 10%);
+        }
+
+        &.focused {
+            background-color: darken($dp-range-background-color, 5%);
+        }
+
+        @if $dp-range-today-background-color != $dp-cell-today-background-color
+        {
+            &.today {
+                background: $dp-range-today-background-color;
+                background-color: $dp-range-today-background-color;
+            }
+        }
+    }
+
+    .datepicker-view .days & {
+        @extend %flex-basis-day;
+    }
+
+    .datepicker-view.datepicker-grid & {
+        @extend %flex-basis-month-year;
+        height: $dp-cell-size-base * 2;
+        line-height: $dp-cell-size-base * 2;
+    }
+}
+
+.datepicker-input.in-edit {
+    border-color: $dp-input-in-edit-border-color;
+
+    &:focus,
+    &:active {
+        box-shadow: $dp-input-in-edit-focus-box-shadow-size
+            rgba($dp-input-in-edit-border-color, 0.2);
+    }
+}
+
+.view-switch {
+    $button-hover-color: $dark; // link-hover
+    $button-hover-border-color: $grey-light; // link-hover-border
+
+    $button-focus-color: $dark; // link-focus
+    $button-focus-border-color: $link; // link-focus-border
+    $button-focus-box-shadow-size: 0 0 0 0.125em;
+    $button-focus-box-shadow-color: rgba($link, 0.25);
+
+    $button-active-color: $dark; // link-active
+    $button-active-border-color: $grey-dark; // link-active-border
+
+    border-radius: $dp-border-radius; // control-radius
+    cursor: pointer;
+    height: 2.25em; // control-height
+    line-height: $dp-line-height-base; // control-line-height
+    white-space: nowrap;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &:hover {
+        border-color: $button-hover-border-color;
+        color: $button-hover-color;
+    }
+
+    &:focus {
+        border-color: $button-focus-border-color;
+        color: $button-focus-color;
+
+        &:not(:active) {
+            box-shadow: $button-focus-box-shadow-size
+                $button-focus-box-shadow-color;
+        }
+    }
+
+    &:active {
+        border-color: $button-active-border-color;
+        color: $button-active-color;
+    }
+}
+
+.clear-btn {
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    white-space: nowrap;
+    color: $purple;
+    transition-duration: $base-duration;
+    font-size: $dp-font-size-small;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $darkShade50per;
+    }
+}
