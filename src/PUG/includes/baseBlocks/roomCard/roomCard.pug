@@ -1,0 +1,31 @@
+include ../../primitives/rateBtn/rateBtn.pug
+
+.room-card
+    .room-card__slider
+        ul.room-card__slider-track
+            li.room-card__slider-item
+                img.room-card__slider-image(src = require("../../IMG/hotel-rooms/image.jpg"))
+            li.room-card__slider-item
+                img.room-card__slider-image(src = require("../../IMG/hotel-rooms/image-1.jpg"))
+            li.room-card__slider-item
+                img.room-card__slider-image(src = require("../../IMG/hotel-rooms/image-2.jpg"))
+            li.room-card__slider-item
+                img.room-card__slider-image(src = require("../../IMG/hotel-rooms/image-3.jpg"))
+        .room-card__slider-buttons
+            button.room-card__slider-btn.room-card__slider-btn--left(type="button")
+            button.room-card__slider-btn.room-card__slider-btn--right(type="button")
+        ul.room-card__slider-dots
+            li.room-card__slider-dot
+            li.room-card__slider-dot
+            li.room-card__slider-dot
+            li.room-card__slider-dot
+    .room-card__info
+        .room-card__info-title-wrap
+            .room-card__info-room-number-wrap
+                h1.room-card__info-title 888
+                span.room-card__info-type люкс
+            span.room-card__info-day-price #[b.room-card__info-day-price.room-card__info-day-price--highlighted 9990₽] в сутки
+        .room-card__info-line
+        .room-card__info-review
+            +rateBtn({starAmount: 3, clickability: false})
+            span.room-card__day-price #[b.room-card__day-price.room-card__day-price--highlighted 145] Отзывов

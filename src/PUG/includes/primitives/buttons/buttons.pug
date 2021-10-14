@@ -4,8 +4,9 @@ mixin buttons(options)
         var typeValue = options.type.value
         var typeFunctionality = options.type.functionality
         var text = options.text
+        var typeAttr = options.typeAttr
 
         var classes = ["btn", typeName, typeValue, typeFunctionality]
 
-    button(class = classes)
+    button(class = classes type = typeAttr)
         h3.btn__text= text

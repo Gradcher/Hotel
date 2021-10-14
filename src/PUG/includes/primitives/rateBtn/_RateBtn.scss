@@ -12,7 +12,6 @@ https://www.youtube.com/watch?v=SD7zspiPlQ4 */
         font-size: 24px;
         color: transparent;
         list-style: none;
-        cursor: pointer;
         background: -moz-linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
         background: -webkit-linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
         background: $pinkPurpleGradient;
@@ -30,13 +29,17 @@ https://www.youtube.com/watch?v=SD7zspiPlQ4 */
         }
     }
 
+    &.rating--clickable {
+        cursor: pointer;
+    }
+
     /* on hover make all full */
-    &:hover .rating__item::before {
+    &.rating--clickable:hover .rating__item::before {
         content: '\2605';
     }
 }
 
 /* make until the hovered (the rest) empty */
-.rating__item:hover ~ .rating__item::before {
+.rating.rating--clickable > .rating__item:hover ~ .rating__item::before {
     content: '\2606';
 }

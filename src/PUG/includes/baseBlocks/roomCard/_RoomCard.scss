@@ -1,0 +1,170 @@
+.room-card {
+    width: 270px;
+    overflow: hidden;
+    border-radius: $card-border-radius;
+    box-shadow: $card-shadow;
+
+    &__slider {
+        position: relative;
+        width: 100%;
+        height: 151px;
+        overflow: hidden;
+
+        &:hover,
+        &:active {
+            & .room-card__slider-buttons {
+                opacity: 1;
+            }
+
+            & .room-card__slider-item::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__slider-track {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: inherit;
+        list-style: none;
+
+        &.shifting {
+            transition: left $base-duration ease-out;
+        }
+    }
+
+    &__slider-item {
+        position: relative;
+        height: inherit;
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: inherit;
+            content: '';
+            opacity: 0;
+            transition-duration: $base-duration;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(255, 255, 255, 0) 15%,
+                rgba(255, 255, 255, 0) 85%,
+                rgba(0, 0, 0, 0.5) 100%
+            );
+        }
+    }
+
+    &__slider-buttons {
+        position: absolute;
+        top: 50%;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        opacity: 0;
+        transition-duration: $base-duration;
+        transform: translate(0, -50%);
+    }
+
+    &__slider-btn {
+        background: {
+            image: url('/src/SVG/angle-light-ico.svg');
+            repeat: no-repeat;
+            position: center;
+        }
+
+        @include size(44px);
+
+        &--left {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__slider-image {
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__slider-dots {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        display: flex;
+        list-style: none;
+    }
+
+    &__slider-dot {
+        box-sizing: border-box;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        box-shadow: $dot-shadow;
+
+        @include size(8px);
+
+        & + & {
+            margin-left: 4px;
+        }
+
+        &--active {
+            background-color: #fff;
+        }
+    }
+
+    &__info {
+        padding: 20px 18px;
+    }
+
+    &__info-title-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    &__info-room-number-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__info-title {
+        margin-right: 2px;
+        font-style: 19px;
+
+        &::before {
+            margin-right: 2px;
+            font-size: 14px;
+            content: '№';
+        }
+    }
+
+    &__info-type {
+        font-size: 12px;
+        font-weight: 700;
+        color: $purple;
+        text-transform: uppercase;
+    }
+
+    &__info-day-price {
+        font-size: 14px;
+        color: $darkShade50per;
+
+        &--highlighted {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    &__info-line {
+        width: 100%;
+        margin-bottom: 8px;
+        border: 1px solid $darkShade10per;
+    }
+
+    &__info-review {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,31 @@
+include ../../primitives/rangeCalendar/rangeCalendar.pug
+include ../../primitives/dropdown/dropdown.pug
+include ../../primitives/buttons/buttons.pug
+
+.card.room-price
+    .room-price__title-wrap
+        .room-price__room-number-wrap
+            h1.room-price__title 888
+            span.room-price__type люкс
+        span.room-price__day-price #[b.room-price__day-price.room-price__day-price--highlighted 9990₽] в сутки
+    form.card__form
+        .card__solo-el-wrap-small
+            +rangeCalendar({text: {start: "прибытие", end: "выезд"}})
+        .card__solo-el-wrap-small
+            +dropdown({dropdownTitle: "гости", type: "guests"})
+    ul.room-price__price-list
+        li.room-price__price-el
+            p.room-price__price-el-desc 9 990₽ х 4 суток
+            p.room-price__price-el-price 39 960₽
+        li.room-price__price-el
+            p.room-price__price-el-desc.room-price__price-el-desc--info Сбор за услуги: скидка 2 179₽
+            p.room-price__price-el-price 0₽
+        li.room-price__price-el
+            p.room-price__price-el-desc.room-price__price-el-desc--info Сбор за дополнительные услуги
+            p.room-price__price-el-price 300₽
+    .card__solo-el-wrap-small
+        .room-price__final-price
+            h1.room-price__final-price-text Итого
+            hr.room-price__final-price-line
+            h1.room-price__final-price-text 38 081₽
+    +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "забронировать", typeAttr: "button"})

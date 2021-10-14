@@ -38,10 +38,7 @@ https://www.youtube.com/watch?v=DfSYmk_6vk8&t=915s
         color: $darkShade50per;
 
         &::after {
-            margin-left: 2px;
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            content: '\f158';
+            content: '₽';
         }
 
         & + & {

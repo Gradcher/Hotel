@@ -63,8 +63,8 @@ html(lang="en")
 
             .block-desc
                 h3.h3-title.h3-title--margin--16 rate button
-                +rateBtn({starAmount: 4})
-                +rateBtn({starAmount: 5})
+                +rateBtn({starAmount: 4, clickability: true})
+                +rateBtn({starAmount: 5, clickability: true})
 
             .block-desc
                 h3.h3-title.h3-title--margin--16 pagination
@@ -75,10 +75,10 @@ html(lang="en")
 
             .block-desc
                 h3.h3-title.h3-title--margin--16 buttons
-                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--sml"}, text: "Click me"})
-                +buttons({type: {name: "btn--type--unfilled"}, text: "Click me"})
-                +buttons({type: {name: "btn--type--without-border"}, text: "Click me"})
-                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg"}, text: "перейти к оплате"})
+                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--sml"}, text: "Click me", typeAttr: "button"})
+                +buttons({type: {name: "btn--type--unfilled"}, text: "Click me", typeAttr: "button"})
+                +buttons({type: {name: "btn--type--without-border"}, text: "Click me", typeAttr: "button"})
+                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg"}, text: "перейти к оплате", typeAttr: "button"})
 
             .block-desc
                 +bulletList({title: "bullet list", elementsArr: [
@@ -92,10 +92,10 @@ html(lang="en")
                 +advantage({txt: {title: "Удобство", descr: "Окно в каждой из спален"}, nameIcon: "city"})
 
             .block-desc
-                +dropdown({dropdownTitle: "dropdown", type: "rooms", expanded: true})
+                +dropdown({dropdownTitle: "dropdown", type: "rooms"})
 
             .block-desc
-                +dropdown({dropdownTitle: "dropdown", type: "guests", expanded: true})
+                +dropdown({dropdownTitle: "dropdown", type: "guests"})
 
             .block-desc
                 +expandableChboxList({title: "expandable checkbox list", checkboxArr: [
@@ -128,5 +128,3 @@ html(lang="en")
 
             .block-desc
                 +rangeCalendar({text: {start: "Date dropdown", end: "Date dropdown"}})
-
-            img(src = require("../../IMG/BONES.jpg"))

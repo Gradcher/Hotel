@@ -2,11 +2,11 @@ include ../../primitives/rangeCalendar/rangeCalendar.pug
 include ../../primitives/dropdown/dropdown.pug
 include ../../primitives/buttons/buttons.pug
 
-.card.login
-    h1.card__title Найдём номера под ваши пожелания
+.card.room-search
+    h1.card__solo-el-wrap-small Найдём номера под ваши пожелания
     form.card__form
         .card__solo-el-wrap-small
             +rangeCalendar({text: {start: "прибытие", end: "выезд"}})
         .card__solo-el-wrap-big
-            +dropdown({dropdownTitle: "гости", type: "guests", expanded: true})
-        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "подобрать номер"})
+            +dropdown({dropdownTitle: "гости", type: "guests"})
+        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "подобрать номер", typeAttr: "button"})

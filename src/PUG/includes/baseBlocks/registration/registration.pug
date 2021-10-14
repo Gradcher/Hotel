@@ -4,7 +4,7 @@ include ../../primitives/toggle/toggle.pug
 include ../../primitives/buttons/buttons.pug
 
 .card.registration
-    h1.card__title Регистрация аккаунта
+    h1.card__solo-el-wrap-small Регистрация аккаунта
     form.card__form(method="post")
         .card__group-wrap
             +textField({type: "text", placeholder: "Имя", name: "user-name"})
@@ -21,7 +21,7 @@ include ../../primitives/buttons/buttons.pug
             +textField({type: "password", placeholder: "Пароль", name: "passsword"})
             +toggle({txt: "Получать спецпредложения"})
     .card__solo-el-wrap-big
-        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "перейти к оплате"})
+        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "перейти к оплате", typeAttr: "button"})
     .card__btn-text-wrap
         p.card__text Уже есть аккаунт на Toxin
-        +buttons({type: {name: "btn--type--unfilled"}, text: "Войти"})
+        +buttons({type: {name: "btn--type--unfilled"}, text: "Войти", typeAttr: "button"})

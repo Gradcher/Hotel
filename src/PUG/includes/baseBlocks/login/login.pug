@@ -2,13 +2,13 @@ include ../../primitives/textField/textField.pug
 include ../../primitives/buttons/buttons.pug
 
 .card.login
-    h1.card__title Войти
+    h1.card__solo-el-wrap-small Войти
     form.card__form(method="post")
         .card__group-wrap
             +textField({type: "email", placeholder: "Email", name: "email-address"})
             +textField({type: "password", placeholder: "Пароль", name: "passsword"})
         .card__solo-el-wrap-big
-            +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "войти"})
+            +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg", functionality: ""}, text: "войти", typeAttr: "button"})
         .card__btn-text-wrap
             p.registration__text Нет аккаунта на Toxin?
-            +buttons({type: {name: "btn--type--unfilled"}, text: "Создать"})
+            +buttons({type: {name: "btn--type--unfilled"}, text: "Создать", typeAttr: "button"})

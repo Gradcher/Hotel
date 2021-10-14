@@ -1,0 +1,93 @@
+.room-price {
+    &__title-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__room-number-wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        margin-right: 8px;
+
+        &::before {
+            margin-right: 2px;
+            font-size: 14px;
+            content: '№';
+        }
+    }
+
+    &__type {
+        font-size: 12px;
+        font-weight: 700;
+        color: $purple;
+        text-transform: uppercase;
+    }
+
+    &__day-price {
+        font-size: 14px;
+        color: $darkShade50per;
+
+        &--highlighted {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    &__final-price {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__final-price-text {
+        white-space: nowrap;
+    }
+
+    &__final-price-line {
+        width: 100%;
+        border: 1px dashed $darkShade25per;
+    }
+
+    &__price-list {
+        margin-bottom: 30px;
+        list-style: none;
+
+        & > * + * {
+            margin-top: 10px;
+        }
+    }
+
+    &__price-el {
+        display: flex;
+    }
+
+    &__price-el-desc {
+        position: relative;
+        width: 75%;
+        padding-right: 25px;
+        color: $darkShade75per;
+    }
+
+    &__price-el-desc--info::after {
+        position: absolute;
+        top: 2px;
+        right: 0;
+        cursor: pointer;
+        content: '';
+        background: {
+            image: url('/src/SVG/info-ico.svg');
+            repeat: no-repeat;
+            position: center;
+        }
+
+        @include size(20px);
+    }
+
+    &__price-el-price {
+        margin-left: auto;
+        color: $darkShade75per;
+    }
+}

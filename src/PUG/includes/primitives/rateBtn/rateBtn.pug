@@ -1,9 +1,10 @@
 mixin rateBtn(options)
     -
+        var clicability = options.clickability ? "rating--clickable" : ""
         var starAmount = options.starAmount
         var i = 1
 
-    ul.rating
+    ul.rating(class = clicability)
         while 5 >= i
             if starAmount == i
                 li.rating__item.active(data-rate=i++)
