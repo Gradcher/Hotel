@@ -25,7 +25,7 @@ module.exports = {
   output: {
     path: PATHS.dist,
     filename: `${PATHS.assets}JS/[name].js`, // [name] = «app» from the «entry» object
-    assetModuleFilename: `${PATHS.assets}IMG/[name].[ext]`,
+    assetModuleFilename: `${PATHS.assets}IMG/[name][ext]`,
   },
   /* assetModuleFilename is the same as filename but for Asset Modules.*/
   /* name: '[name].[ext]' — [name] allow to safe original image name, not meaningless hash(беспорядок)
@@ -77,6 +77,7 @@ module.exports = {
         new HtmlWebpackPlugin({
           template: `${PAGES_DIR}/${page}`,
           filename: `./${page.replace(/\.pug/, '.html')}`,
+          favicon: `${PATHS.src}/STATIC/hotel.png`,
         })
     ),
   ],
