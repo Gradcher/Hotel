@@ -1,14 +1,15 @@
 //Main
-@import './utils/_Vars.scss';
-@import './utils/_Fonts.scss';
-@import './utils/_Mixins.scss';
-@import './utils/_StandartProp.scss';
+@import './utils/vars.scss';
+@import './utils/fonts.scss';
+@import './utils/mixins.scss';
+@import './utils/standartProp.scss';
+
 // Primitives
-@import '../PUG/includes/primitives/toggle/Toggle';
-@import '../PUG/includes/primitives/radio/Radio';
-@import '../PUG/includes/primitives/checkbox/Checkbox';
-@import '../PUG/includes/primitives/likeBtn/LikeBtn';
-@import '../PUG/includes/primitives/rateBtn/RateBtn';
+@import '../PUG/includes/primitives/toggle/Toggle.scss';
+@import '../PUG/includes/primitives/radio/Radio.scss';
+@import '../PUG/includes/primitives/checkbox/Checkbox.scss';
+@import '../PUG/includes/primitives/likeBtn/LikeBtn.scss';
+@import '../PUG/includes/primitives/rateBtn/RateBtn.scss';
 @import '../PUG/includes/primitives/doubleSlider/DoubleSlider.scss';
 @import '../PUG/includes/primitives/pagination/Pagination.scss';
 @import '../PUG/includes/primitives/buttons/Buttons.scss';
@@ -26,8 +27,12 @@
 @import '../PUG/includes/baseBlocks/roomSearch/RoomSearch.scss';
 @import '../PUG/includes/baseBlocks/roomPrice/RoomPrice.scss';
 @import '../PUG/includes/baseBlocks/roomCard/RoomCard.scss';
+@import '../PUG/includes/baseBlocks/header/Header.scss';
+@import '../PUG/includes/baseBlocks/footer/Footer.scss';
 //Layouts
 @import '../SCSS/layouts/Cards.scss';
+@import '../SCSS/layouts/LandingPage.scss';
+@import '../SCSS/layouts/Login.scss';
 // Datepicker
 /* Site — https://mymth.github.io/vanillajs-datepicker */
 // @import '/node_modules/vanillajs-datepicker/sass/datepicker.scss'; // — base calendar SCSS
@@ -51,7 +56,7 @@
     margin: 100px 0 0 100px;
 }
 
-.logo-wrap {
+.logo-sign-wrap {
     position: absolute;
     margin: 30px 0 0 30px;
 }
@@ -151,3 +156,12 @@
         text-overflow: ellipsis;
     }
 }
+
+.logo {
+    display: block;
+    width: 106px;
+    min-width: 106px;
+}
+
+//Main
+@import './utils/media.scss';

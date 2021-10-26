@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+    .footer {
+        margin-top: 120px;
+    }
+
+    .footer__text {
+        text-align: center;
+        margin: 20px 0 25px 0;
+    }
+
+    .footer__top {
+        display: none;
+    }
+
+    .footer__bottom {
+        display: none;
+    }
+
+    .footer__mobile {
+        display: block;
+    }
+}

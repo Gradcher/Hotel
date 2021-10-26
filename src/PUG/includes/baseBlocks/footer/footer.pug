@@ -1,0 +1,72 @@
+include ../../primitives/textField/textField.pug
+
+.footer
+    .footer__top
+        .footer__top-container
+            .footer__top-item-container
+                a.logo(href="homepage")
+                    img.logo__img(src = require("/src/IMG/logo.png") alt="logo")
+                p.footer__text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+            .footer__top-item-container
+                h3.footer__title Навигация
+                ul.footer__info-list
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") О нас
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Новости
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Служба поддержки
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Услуги
+            .footer__top-item-container
+                h3.footer__title О нас
+                ul.footer__info-list
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") О сервисе
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Наша команда
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Вакансии
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Инвесторы
+            .footer__top-item-container
+                h3.footer__title Служба поддержки
+                ul.footer__info-list
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Соглашения
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Сообщества
+                    li.footer__info-item
+                        a.footer__info-link(href="linktosmth") Связь с нами
+            .footer__top-item-container
+                h3.footer__title Подписка
+                p.footer__text Получайте специальные предложения и новости сервиса
+                +textField({type: "email", modificator: "text-field--type--subscr", placeholder: "Email", name: "email-address"})
+    .footer__bottom
+        .footer__bottom-container
+            p.footer__text Copyright © 2018 Toxin отель. Все права защищены.
+            ul.footer__social-list
+                li.footer__social-item
+                    a.footer__social-link(href="social")
+                        img.footer__social-icon(src=require("/src/SVG/twitter-ico.svg") alt="twitte-ico")
+                li.footer__social-item
+                    a.footer__social-link(href="social")
+                        img.footer__social-icon(src=require("/src/SVG/facebook-ico.svg") alt="facebook-ico")
+                li.footer__social-item
+                    a.footer__social-link(href="social")
+                        img.footer__social-icon(src=require("/src/SVG/instagram-ico.svg") alt="instagram-ico")
+    .footer__mobile(hidden)
+        .footer__mobile-container
+            a.logo(href="homepage")
+                img.logo__img(src = require("/src/IMG/logo.png") alt="logo")
+            p.footer__text Copyright © 2018 Toxin отель. Все права защищены.
+            ul.footer__social-list
+                li.footer__social-item
+                    a.footer__social-link(href="social")
+                        img.footer__social-icon(src=require("/src/SVG/twitter-ico.svg") alt="twitte-ico")
+                li.footer__social-item
+                    a.footer__social-link(href="social")
+                        img.footer__social-icon(src=require("/src/SVG/facebook-ico.svg") alt="facebook-ico")
+                li.footer__social-item
+                    a.footer__social-link(href="social")
+                        img.footer__social-icon(src=require("/src/SVG/instagram-ico.svg") alt="instagram-ico")

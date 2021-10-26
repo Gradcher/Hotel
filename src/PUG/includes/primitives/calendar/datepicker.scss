@@ -85,7 +85,7 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
     border-radius: $dp-border-radius;
 
     .datepicker-dropdown & {
-        box-shadow: $primitives-shadow;
+        box-shadow: $light-shadow;
     }
 
     span {

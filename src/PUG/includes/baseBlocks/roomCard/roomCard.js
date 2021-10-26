@@ -393,4 +393,4 @@ class RoomCatalogPage {
 }
 
 const roomCatalogPage = new RoomCatalogPage(roomCatalog);
-roomCatalogPage.render;
+// roomCatalogPage.render;

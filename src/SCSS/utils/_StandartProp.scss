@@ -47,6 +47,8 @@ a {
 
 /* Выставляем основные настройки по-умолчанию для body */
 body {
+    display: flex; //for pressing footer
+    flex-direction: column; //for pressing footer
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;

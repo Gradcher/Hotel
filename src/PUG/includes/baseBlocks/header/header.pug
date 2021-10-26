@@ -1,0 +1,27 @@
+include ../../primitives/buttons/buttons.pug
+
+mixin header (options)
+    -
+        var userAuthorization = options.userAuthorization
+        var userName = options.userName
+
+    .header
+        .header__container
+            .header__wrap-for-el
+                a.logo(href="homepage")
+                    img.logo__img(src = require("/src/IMG/logo.png") alt="logo")
+            ul.header__navbar
+                li.header__navbar-item.header__navbar-item--highlighted О нас
+                li.header__navbar-item.header__navbar-item--dropdown Услуги
+                li.header__navbar-item
+                    a.header__navbar__link(href="jobs") Вакансии
+                li.header__navbar-item
+                    a.header__navbar__link(href="news") Новости
+                li.header__navbar-item.header__navbar-item--dropdown Соглашения
+            if userAuthorization
+                .header__user
+                    a.header__user-link(href="userpage")= userName
+            else
+                .header__wrap-for-el
+                    +buttons({type: {name: "btn--type--unfilled"}, text: "войти", typeAttr: "button"})
+                +buttons({type: {name: "btn--type--filled"}, text: "зарегистрироваться", typeAttr: "button"})

@@ -26,8 +26,8 @@ html(lang="en")
         title Document
         include ../includes/baseBlocks/script
     body
-        .logo-wrap
-            img.logo(src = require("../../SVG/logo.svg"))
+        .logo-sign-wrap
+            img.logo-sign(src = require("../../SVG/logo.svg") alt="logo-sign")
 
         .form-elements-wrap
             .block-desc
@@ -75,10 +75,10 @@ html(lang="en")
 
             .block-desc
                 h3.h3-title.h3-title--margin--16 buttons
-                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--sml"}, text: "Click me", typeAttr: "button"})
+                +buttons({type: {name: "btn--type--filled"}, text: "Click me", typeAttr: "button"})
                 +buttons({type: {name: "btn--type--unfilled"}, text: "Click me", typeAttr: "button"})
                 +buttons({type: {name: "btn--type--without-border"}, text: "Click me", typeAttr: "button"})
-                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--lg"}, text: "перейти к оплате", typeAttr: "button"})
+                +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--arrow"}, text: "перейти к оплате", typeAttr: "button"})
 
             .block-desc
                 +bulletList({title: "bullet list", elementsArr: [

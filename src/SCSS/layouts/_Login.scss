@@ -1,0 +1,15 @@
+.login {
+    flex-grow: 1; //for pressing footer
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    height: 683px;
+    background: {
+        image: url('/src/IMG/login-backgr.jpg');
+        repeat: no-repeat;
+        position: center;
+        size: cover;
+    }
+}

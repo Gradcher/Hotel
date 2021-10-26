@@ -1,0 +1,80 @@
+.header {
+    width: 100%;
+    height: 70px;
+    padding: 0 20px;
+    box-shadow: $light-shadow;
+
+    &__container {
+        position: relative;
+        top: 50%;
+        display: flex;
+        align-items: center;
+        max-width: 1160px;
+        margin: 0 auto;
+        transform: translateY(-50%);
+    }
+
+    &__navbar {
+        display: flex;
+        margin-right: 20px;
+        margin-left: auto;
+        list-style: none;
+    }
+
+    &__navbar-item {
+        min-width: 45px;
+        color: $darkShade50per;
+        cursor: pointer;
+
+        & + & {
+            margin-left: 20px;
+        }
+    }
+
+    &__navbar__link {
+        color: $darkShade50per;
+    }
+
+    &__navbar-item--highlighted {
+        font-weight: $font-weight-bold;
+        color: $darkShade75per;
+    }
+
+    &__navbar-item--dropdown {
+        position: relative;
+        margin-right: calc(6px + 12px + 6px);
+
+        &::after {
+            position: absolute;
+            top: calc(
+                (24px - 12px) / 2
+            ); //lihe height = 24px, icon height = 12px, (24px - 12px) / 2 = 6px
+            right: calc(-6px - 12px - 6px);
+            content: '';
+            transition-duration: $base-duration;
+            background: {
+                image: url('/src/SVG/angle-dark-ico.svg');
+                repeat: no-repeat;
+                position: center;
+            }
+
+            @include size(12px);
+        }
+    }
+
+    &__wrap-for-el {
+        margin-right: 20px;
+    }
+
+    &__user {
+        height: 30px;
+        padding-left: 20px;
+        border-left: 1px solid $darkShade10per;
+    }
+
+    &__user-link {
+        line-height: 30px;
+        color: $darkShade50per;
+        white-space: nowrap;
+    }
+}
