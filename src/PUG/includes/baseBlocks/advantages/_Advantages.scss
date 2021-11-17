@@ -1,37 +1,47 @@
 .advantage {
-    width: 280px;
     max-width: 100%;
-    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+    width: 280px;
+
+    &--underline {
+        border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+
+        > .advantage__wrap {
+            margin-bottom: 20px;
+        }
+    }
 
     &__wrap {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 20px;
     }
 
     &__icon {
-        min-width: 48px;
-        height: 48px;
         margin-right: 10px;
-        background-repeat: no-repeat;
         background-position: center;
+        background-repeat: no-repeat;
+        height: 48px;
+        min-width: 48px;
 
         &--smile {
-            background-image: url('/src/SVG/smile-ico.svg');
+            background-image: url("/src/SVG/smile-ico.svg");
         }
 
         &--city {
-            background-image: url('/src/SVG/city-ico.svg');
+            background-image: url("/src/SVG/city-ico.svg");
+        }
+
+        &--fire {
+            background-image: url("/src/SVG/fire-ico.svg");
         }
     }
 
     &__title {
         font-weight: 700;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 
     &__descr {
         font-weight: $font-weight-regular;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 }

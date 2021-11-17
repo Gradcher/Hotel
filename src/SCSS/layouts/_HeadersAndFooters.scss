@@ -1,0 +1,8 @@
+.headersAndFooters-header-wrap {
+    position: relative;
+    margin-bottom: 300px;
+
+    > * + * {
+        margin: 100px 0;
+    }
+}

@@ -1,9 +1,5 @@
 mixin bulletList(options)
-    -
-        var title = options.title
 
     ul.bullet-list
-        h3.h3-title.h3-title--margin--16= title
-        ul.bullet-list__list
-            each element in options.elementsArr
-                li.bullet-list__item= element.text
+        each element in options.elementsArr
+            li.bullet-list__item= element.text

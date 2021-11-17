@@ -15,12 +15,14 @@ function changeResultText(
 
   let declinedWord = '';
   let resultValue = '';
-
   const currentDropdownItemTitle =
     changeAmountBtn.parentElement.previousElementSibling.innerHTML;
 
   if (dropdown.classList.contains('dropdown--type--rooms')) {
     switch (amountNum) {
+      // case 0:
+      //   resultValue = dropdownOriginalResultText;
+      //   break;
       case 1:
         if (/спал/i.test(titleText)) {
           declinedWord = `${amountNum} ${titleText
@@ -90,10 +92,11 @@ function changeResultText(
       }
     }
 
-    const onlyTextValues = [];
-    arrResultValues.forEach((element) => onlyTextValues.push(element[1]));
-
-    resultValue = onlyTextValues.join(', ');
+    if (arrResultValues.length !== 0) {
+      const onlyTextValues = [];
+      arrResultValues.forEach((element) => onlyTextValues.push(element[1]));
+      resultValue = onlyTextValues.join(', ');
+    }
   } else {
     if (changeAmountBtn.classList.contains('dropdown__amount-btn--plus')) {
       arrResultValues.push(currentDropdownItemTitle);

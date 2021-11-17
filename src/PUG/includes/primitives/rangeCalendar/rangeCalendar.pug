@@ -8,7 +8,7 @@ mixin rangeCalendar (options)
     .foo.range-calendar
         .range-calendar__item
             h3.h3-title.h3-title--margin--5= startText
-            +textField({type: "text", modificator: "text-field--type--range-calendar", placeholder: "ДД.ММ.ГГГГ", name: "start"})
+            +textField({type: "text", modificator: "text-field--type--range-calendar", placeholder: "ДД.ММ.ГГГГ", name: "range-calendar-start", readonly: true})
         .range-calendar__item
             h3.h3-title.h3-title--margin--5= endText
-            +textField({type: "text", modificator: "text-field--type--range-calendar", placeholder: "ДД.ММ.ГГГГ", name: "end"})
+            +textField({type: "text", modificator: "text-field--type--range-calendar", placeholder: "ДД.ММ.ГГГГ", name: "range-calendar-end", readonly: true})

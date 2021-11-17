@@ -1,7 +1,7 @@
 .expandable-chbox {
-    width: 266px;
-    min-width: 210px;
     max-width: 100%;
+    min-width: 210px;
+    width: 266px;
 
     &__text {
         overflow: hidden;
@@ -15,20 +15,20 @@
         cursor: pointer;
 
         &::after {
+            @include size(12px);
+
             position: absolute;
             top: 0;
-            right: 16px;
             bottom: 0;
+            right: 16px;
+            content: "";
             margin: auto;
-            content: '';
             transition-duration: $base-duration;
             background: {
-                image: url('/src/SVG/angle-dark-ico.svg');
-                repeat: no-repeat;
                 position: center;
+                image: url("/src/SVG/angle-dark-ico.svg");
+                repeat: no-repeat;
             }
-
-            @include size(12px);
         }
     }
 

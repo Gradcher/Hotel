@@ -29,8 +29,8 @@ mixin dropdown(options)
                             span.dropdown__amount-numb 0
                             button.dropdown__amount-btn.dropdown__amount-btn--plus(type="button")
                 .dropdown__footer-btns-wrap
-                    +buttons({type: {name: "btn--type--without-border", value: "", functionality: "btn--type--dropdown-btn-clear"}, text: "Очистить", active: false, typeAttr: "button"})
-                    +buttons({type: {name: "btn--type--without-border", value: "", functionality: ""}, text: "Применить", active: false, typeAttr: "button"})
+                    +button({type: {name: "btn--type--without-border", value: "", functionality: "btn--type--dropdown-btn-clear"}, text: "Очистить", active: false, typeAttr: "button"})
+                    +button({type: {name: "btn--type--without-border", value: "", functionality: ""}, text: "Применить", active: false, typeAttr: "button"})
 
     else
         div(class=`dropdown dropdown--type--${dropdownType}`)
@@ -57,5 +57,5 @@ mixin dropdown(options)
                             span.dropdown__amount-numb 0
                             button.dropdown__amount-btn.dropdown__amount-btn--plus(type="button")
                 .dropdown__footer-btns-wrap
-                    +buttons({type: {name: "btn--type--without-border", functionality: "btn--type--dropdown-btn-clear"}, text: "Очистить", id: "dropdownBtnClear", typeAttr: "button"})
-                    +buttons({type: {name: "btn--type--without-border"}, text: "Применить", typeAttr: "button"})
+                    +button({type: {name: "btn--type--without-border", functionality: "btn--type--dropdown-btn-clear"}, text: "Очистить", id: "dropdownBtnClear", typeAttr: "button"})
+                    +button({type: {name: "btn--type--without-border"}, text: "Применить", typeAttr: "button"})

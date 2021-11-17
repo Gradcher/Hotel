@@ -6,10 +6,14 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        meta(name="keywords", content="войти, снять комнату, отель, учетная запись")
+        meta(name="description", content="Войдите чтобы получить доступ к более чем 1000 отелей прямо сейчас")
+        title Войдите в учетную запись
         include ../includes/baseBlocks/script
     body
-        +header({userAuthorization: false})
-        .login
-            include ../includes/baseBlocks/login/login.pug
-        include ../includes/baseBlocks/footer/footer.pug
+        .wrapper
+            +header({userAuthorization: false})
+            main.content
+                .login
+                    include ../includes/baseBlocks/loginCard/loginCard.pug
+            include ../includes/baseBlocks/footer/footer.pug

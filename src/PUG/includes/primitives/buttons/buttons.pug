@@ -1,12 +1,20 @@
-mixin buttons(options)
+mixin button(options)
     -
         var typeName = options.type.name
         var typeValue = options.type.value
         var typeFunctionality = options.type.functionality
         var text = options.text
         var typeAttr = options.typeAttr
+        var id = options.id
+
+        var linkType = options.linkType
+        var linkPath = options.linkPath
 
         var classes = ["btn", typeName, typeValue, typeFunctionality]
 
-    button(class = classes type = typeAttr)
-        h3.btn__text= text
+    if linkType
+        a(class = classes id = id href=`${linkPath}.html`)
+            h3.btn__text= text
+    else
+        button(class = classes id = id type = typeAttr)
+            h3.btn__text= text

@@ -9,6 +9,9 @@ import '../PUG/includes/primitives/dropdown/dropdown';
 // Base blocks
 import '../PUG/includes/baseBlocks/expandableChboxList/expandableChboxList';
 import '../PUG/includes/baseBlocks/roomCard/roomCard';
+import './roomDetails';
+import './roomSearch';
+import './deviceDefenition';
 
 // Datepicker
 /* Site — https://mymth.github.io/vanillajs-datepicker */
@@ -43,6 +46,23 @@ if (rangeCalendars !== null) {
       nextArrow: '',
       prevArrow: '',
       todayHighlight: true,
+    });
+  }
+}
+
+const rangeCalendarsOneBlock = document.querySelectorAll(
+  '.range-calendar--one-block'
+);
+if (rangeCalendarsOneBlock !== null) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const rangeCalendarOneBlock of rangeCalendarsOneBlock) {
+    const rangepickerOneBlock = new DateRangePicker(rangeCalendarOneBlock, {
+      clearBtn: true,
+      language: 'ru',
+      nextArrow: '',
+      prevArrow: '',
+      todayHighlight: true,
+      format: 'dd-M',
     });
   }
 }

@@ -8,24 +8,24 @@ https://www.youtube.com/watch?v=d2ve7xQNco8 */
 
     &__list {
         display: inline-flex;
-        flex-wrap: wrap;
-        align-items: center;
         justify-content: center;
-        padding: 0;
+        align-items: center;
+        flex-wrap: wrap;
         margin-bottom: 9px;
+        padding: 0;
     }
 
     &__item {
-        margin-top: 0;
-        line-height: 40px;
-        color: $darkShade50per;
-        text-align: center;
-        list-style: none;
-        cursor: pointer;
-        user-select: none;
-        border-radius: 50%;
-
         @include size(40px);
+
+        border-radius: 50%;
+        margin-top: 0;
+        list-style: none;
+        line-height: 40px;
+        color: $dark-shade-50per;
+        cursor: pointer;
+        text-align: center;
+        user-select: none;
 
         &--dots {
             cursor: default;
@@ -33,21 +33,21 @@ https://www.youtube.com/watch?v=d2ve7xQNco8 */
 
         &--icon {
             position: relative;
+            background: $blue-green-gradient;
             color: #fff;
-            background: $blueGreenGradient;
 
             &::after {
+                @include size(16px);
+
                 position: absolute;
                 top: 0;
-                right: 0;
                 bottom: 0;
                 left: 0;
+                right: 0;
+                content: "";
                 margin: auto;
-                content: '';
-                background-image: url('/src/SVG/arrow-ico.svg');
+                background-image: url("/src/SVG/arrow-ico.svg");
                 background-position: center;
-
-                @include size(16px);
             }
 
             &--prev::after {
@@ -57,14 +57,15 @@ https://www.youtube.com/watch?v=d2ve7xQNco8 */
     }
 
     &__descr {
+        text-align: center;
         font-size: 14px;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 }
 
 .pagination__item--numb:hover,
 .pagination__item--active {
+    background: $pink-purple-gradient;
     font-weight: 700;
     color: #fff;
-    background: $pinkPurpleGradient;
 }

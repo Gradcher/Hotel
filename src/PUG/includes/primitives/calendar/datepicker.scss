@@ -11,7 +11,7 @@ $grey-lighter: darken($light, 10%) !default;
 
 //== datepicker variables ==//
 $dp-background-color: $white !default;
-$dp-border: 1px solid $darkShade25per;
+$dp-border: 1px solid $dark-shade-25per;
 $dp-border-radius: 4px !default;
 $dp-border-radius-small: 2px !default;
 $dp-border-radius-circle: 50% !default;
@@ -23,7 +23,7 @@ $dp-font-weight-bold: 700 !default;
 $dp-dropdown-offset: 6px !default;
 // $dp-dropdown-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1) !default;
 $dp-dropdown-z: 20 !default;
-$dp-cell-selected-highlight-color: $pinkPurpleGradient !default; // blue
+$dp-cell-selected-highlight-color: $pink-purple-gradient !default; // blue
 
 $dp-title-background-color: $light !default;
 
@@ -34,7 +34,7 @@ $dp-cell-disabled-color: $grey-lighter !default;
 $dp-cell-selected-background-color: $link !default;
 $dp-cell-selected-color: #fff !default; // link(blue)-invert
 $dp-cell-selected-font-weight: 600 !default;
-$dp-cell-today-background-color: $blueGreenGradient !default; // turquoise (primary)
+$dp-cell-today-background-color: $blue-green-gradient !default; // turquoise (primary)
 $dp-cell-today-color: #fff !default; // turquoise-invert
 $dp-cell-highlighted-background-color: $light !default;
 $dp-range-start-end-background-color: $grey-light !default;
@@ -270,7 +270,7 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
 
 .datepicker-cell {
     font-size: $dp-font-size-small;
-    color: $darkShade50per;
+    color: $dark-shade-50per;
 
     @extend %datepicker-cell-height;
 
@@ -299,7 +299,7 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
     &.prev,
     &.next {
         &:not(.disabled) {
-            color: $darkShade25per;
+            color: $dark-shade-25per;
         }
 
         &.selected {
@@ -335,7 +335,7 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
     }
 
     &%range-start-end-common {
-        background: $pinkPurpleGradient;
+        background: $pink-purple-gradient;
         color: $light;
         font-weight: $font-weight-bold;
     }
@@ -365,7 +365,7 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
             width: $dp-cell-size-base / 2;
             height: $dp-cell-size-base;
             content: '';
-            background: $pacePinkPurpleGradient;
+            background: $pace-pink-purple-gradient;
         }
     }
 
@@ -390,12 +390,12 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
             width: $dp-cell-size-base / 2;
             height: $dp-cell-size-base;
             content: '';
-            background: $pacePinkPurpleGradient;
+            background: $pace-pink-purple-gradient;
         }
     }
 
     &.range {
-        background: $pacePinkPurpleGradient;
+        background: $pace-pink-purple-gradient;
         border-radius: 0;
 
         &:not(.disabled):not(.focused):not(.today):hover {
@@ -496,6 +496,6 @@ $dp-cell-shrinked-width: $dp-cell-size-base * 7 / 8;
     &:hover,
     &:focus,
     &:active {
-        color: $darkShade50per;
+        color: $dark-shade-50per;
     }
 }

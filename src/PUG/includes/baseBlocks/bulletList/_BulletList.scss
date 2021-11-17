@@ -1,31 +1,28 @@
 .bullet-list {
+    max-width: 100%;
+    width: 255px;
+    list-style: none;
+
     &__title {
         margin-bottom: 16px;
     }
 
-    &__list {
-        list-style: none;
-    }
-
     &__item {
         position: relative;
-        width: 235px;
-        max-width: 100%;
         margin-left: 20px;
         font-size: 14px;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
 
         &::before {
+            @include size(10px);
+
             position: absolute;
             top: 7px;
             left: -20px;
+            content: "";
             display: inline-block;
-            margin-right: 20px;
-            content: '';
-            background-color: $darkShade25per;
             border-radius: 50%;
-
-            @include size(10px);
+            background-color: $dark-shade-25per;
         }
 
         & + & {

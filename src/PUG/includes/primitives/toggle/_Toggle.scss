@@ -6,25 +6,28 @@
         position: relative;
         display: block;
         padding-left: 50px;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
 
         &::before {
             position: absolute;
             top: 2px;
             left: 0;
-            min-width: 40px;
-            height: 20px;
-            content: '';
-            border: 1px solid $darkShade25per;
+            content: "";
+            border: 1px solid $dark-shade-25per;
             border-radius: 10px;
+            height: 20px;
+            min-width: 40px;
             transition-duration: 0.5s;
         }
 
         &::after {
+            @include size(12px);
+
             position: absolute;
             top: 6px;
             left: 4px;
-            content: '';
+            content: "";
+            border-radius: 50%;
             background: linear-gradient(
                 to left,
                 #bc9cff 0%,
@@ -34,10 +37,7 @@
             );
             background-position: left;
             background-size: 250%;
-            border-radius: 50%;
             transition-duration: 0.5s;
-
-            @include size(12px);
         }
     }
 
@@ -47,12 +47,10 @@
         &:checked + .toggle__text::before {
             border: 1px solid $purple;
         }
-
         &:checked + .toggle__text::after {
             left: 24px;
-            //or transform: translateX(24px);
+            transform: rotate(-90deg); // or transform: translateX(24px);
             background-position: right;
-            transform: rotate(-90deg);
         }
     }
 }

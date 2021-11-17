@@ -29,8 +29,8 @@ module.exports = {
   },
   /* assetModuleFilename is the same as filename but for Asset Modules.*/
   /* name: '[name].[ext]' — [name] allow to safe original image name, not meaningless hash(беспорядок)
-    If our image has a name — «apple.jpg» for example, then with [name] setting the name of our image will remain unchanged.
-    Without that setting the name would have looked like — "jcvdhrk.jpg" */
+  If our image has a name — «apple.jpg» for example, then with [name] setting the name of our image will remain unchanged.
+  Without that setting the name would have looked like — "jcvdhrk.jpg" */
   module: {
     rules: [
       {

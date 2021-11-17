@@ -3,13 +3,13 @@
     cursor: pointer;
 
     &__desc {
-        line-height: 14px;
-        padding-left: 30px;
         margin-top: 0;
         overflow: hidden;
-        font-size: 12px;
-        color: $darkShade50per;
+        padding-left: 30px;
         text-overflow: ellipsis;
+        font-size: 12px;
+        line-height: 14px;
+        color: $dark-shade-50per;
     }
 
     &__text {
@@ -17,36 +17,36 @@
         display: block;
         padding-left: 30px;
         line-height: 18px;
-        color: $darkShade50per;
+        color: $dark-shade-50per;
 
         &::before {
+            @include size(20px);
+
             position: absolute;
             top: 0;
             left: 0;
-            margin-right: 10px;
-            content: '';
-            border: 1px solid $darkShade25per;
+            content: "";
+            border: 1px solid $dark-shade-25per;
             border-radius: 4px;
+            margin-right: 10px;
             transition-duration: $base-duration;
-
-            @include size(20px);
         }
 
         &::after {
             position: absolute;
             top: 10px;
             left: 10px;
-            display: block;
-            content: url('../SVG/tick-ico.svg');
+            content: url("../SVG/tick-ico.svg");
             opacity: 0;
-            transition-duration: $base-duration;
             transform: translate(-50%, -50%);
+            display: block;
+            transition-duration: $base-duration;
         }
 
         &--title {
             margin-bottom: 5px;
             font-weight: 700;
-            color: $darkShade75per;
+            color: $dark-shade-75per;
         }
     }
 

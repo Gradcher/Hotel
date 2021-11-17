@@ -5,6 +5,7 @@ mixin doubleSlider(options)
         var maxValue = options.maxValue;
         var leftBaseValue = options.leftBaseValue;
         var rightBaseValue = options.rightBaseValue;
+        var descriptionText = options.descriptionText
 
     .slider
         .slider__header
@@ -17,3 +18,4 @@ mixin doubleSlider(options)
             input.slider__range-input.slider__range-input--left#rangeLeft(type="range" min=minValue max=maxValue value=leftBaseValue)
             .slider__range-between#sliderRangeBetween
             input.slider__range-input.slider__range-input--right#rangeRight(type="range" min=minValue max=maxValue value=rightBaseValue)
+        p.slider__description-text= descriptionText

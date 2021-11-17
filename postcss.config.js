@@ -15,7 +15,8 @@ module.exports = {
   ],
 };
 /* Этот файл должен находиться в корне проекта для корректной работы.
-Попытка поместить этот файл в папку JS и указать путь для postcss loader-у как у парня в видосе у меня не получилось.
+Попытка поместить этот файл в папку JS и указать путь для postcss
+loader-у как у парня в видосе у меня не получилось.
 Link to the video: https://www.youtube.com/watch?v=qqTIqwQX8nc&t=821s
 
 css-mqpacker — 22:10 — https://www.youtube.com/watch?v=qqTIqwQX8nc&t=821s.

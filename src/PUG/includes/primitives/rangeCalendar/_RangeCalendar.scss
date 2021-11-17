@@ -1,7 +1,42 @@
 .range-calendar {
     display: flex;
 
-    &__item + .range-calendar__item {
+    & > .range-calendar__item + .range-calendar__item {
         margin-left: 20px;
     }
+}
+
+.range-calendar {
+    &--one-block {
+        // max-width: 150px;
+        border: 1px solid black;
+        margin-bottom: 100px;
+    }
+}
+
+.input {
+    display: block;
+    width: 100%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    border: none;
+
+    &:focus {
+        outline: none;
+        user-select: none;
+    }
+}
+
+.input-wrap:last-of-type {
+    position: relative;
+}
+
+.input-wrap:last-of-type::before {
+    content: "-";
+    left: -20px;
+    position: absolute;
 }

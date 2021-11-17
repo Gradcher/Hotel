@@ -1,7 +1,7 @@
 .dropdown {
     position: relative;
-    min-width: 210px;
     max-width: 100%;
+    min-width: 210px;
 
     &--type--rooms {
         width: 266px;
@@ -20,61 +20,62 @@
     }
 
     &__content {
+        z-index: 999;
         position: absolute;
-        z-index: 1;
-        box-sizing: border-box;
         display: none;
-        width: inherit;
-        max-width: 100%;
-        padding: 7px 7px 7px 15px;
-        background-color: #fff;
-        border: 1px solid $darkShade25per;
+        border: 1px solid $dark-shade-25per;
         border-top: 0;
         border-radius: 0 0 4px 4px;
+        background-color: #fff;
+        max-width: 100%;
+        width: inherit;
+        box-sizing: border-box;
+        padding: 7px 7px 7px 15px;
         transition-duration: $base-duration;
     }
 
     &__header {
+        background-color: #fff;
         position: relative;
-        box-sizing: border-box;
+        border: 1px solid $dark-shade-25per;
+        border-radius: 4px 4px 0 0;
+        background-color: #fff;
         width: 100%;
+        box-sizing: border-box;
         padding: 7px 44px 7px 15px;
         cursor: pointer;
-        background-color: #fff;
-        border: 1px solid $darkShade25per;
-        border-radius: 4px 4px 0 0;
         transition-duration: $base-duration;
 
         &:hover {
-            background-color: $darkShade5per;
+            background-color: $dark-shade-5per;
         }
 
         &::after {
+            @include size(12px);
+
             position: absolute;
             top: 0;
-            right: 16px;
             bottom: 0;
+            right: 16px;
+            content: "";
             margin: auto;
-            content: '';
             transition-duration: $base-duration;
             background: {
-                image: url('/src/SVG/angle-dark-ico.svg');
-                repeat: no-repeat;
                 position: center;
+                image: url("/src/SVG/angle-dark-ico.svg");
+                repeat: no-repeat;
             }
-
-            @include size(12px);
         }
     }
 
     &__result-txt {
         max-width: 100%;
         overflow: hidden;
-        font-weight: $font-weight-regular;
-        color: $darkShade75per;
-        text-align: left;
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-weight: $font-weight-regular;
+        color: $dark-shade-75per;
+        text-align: left;
     }
 
     &__item-title {
@@ -94,61 +95,59 @@
 
     &__amount-block {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        min-width: 92px;
+        align-items: center;
         margin-left: auto;
+        min-width: 92px;
     }
 
     &__amount-btn {
-        box-sizing: border-box;
-        border: 1px solid $darkShade25per;
-        border-radius: 50%;
-        transition-duration: $base-duration;
-
         @include size(30px);
 
+        border: 1px solid $dark-shade-25per;
+        border-radius: 50%;
+        box-sizing: border-box;
+        transition-duration: $base-duration;
+
         &.dropdown__amount-btn--non-active {
+            border: 1px solid $dark-shade-10per;
             pointer-events: none;
-            border: 1px solid $darkShade10per;
 
             &::before {
-                color: $darkShade10per;
+                color: $dark-shade-10per;
             }
         }
 
         &:hover:not(.dropdown__amount-btn.dropdown__amount-btn--non-active) {
-            background-color: $darkShade5per;
+            background-color: $dark-shade-5per;
         }
 
         &::before {
             font-size: 18px;
-            color: $darkShade50per;
+            color: $dark-shade-50per;
         }
 
         &--minus::before {
-            content: '-';
+            content: "-";
         }
 
         &--plus::before {
-            content: '+';
+            content: "+";
         }
     }
 
     &__amount-numb {
         font-size: 12px;
         font-weight: 700;
-        color: $darkShade100per;
+        color: $dark-shade-100per;
     }
 
     &__footer-btns-wrap {
         display: flex;
         justify-content: space-between;
-        margin: 12px 0 6px 0;
+        margin: 12px 0 6px;
     }
 }
-
-//.dropdown--active
 
 .dropdown--active {
     &.dropdown {
@@ -170,5 +169,5 @@
 
 .dropdown--active .dropdown__header,
 .dropdown--active .dropdown__header + .dropdown__content {
-    border-color: $darkShade50per;
+    border-color: $dark-shade-50per;
 }

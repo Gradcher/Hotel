@@ -1,173 +1,185 @@
-/* https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2 */
+/* Infinite pure Javascript slider — https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2 */
 
 const roomCatalog = [
   {
     id: 'roomCard-1',
     images: [
-      'assets/IMG/image.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 888,
     luxRoom: true,
     roomDayPrice: 9990,
     starAmount: 5,
     reviewAmount: 145,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-2',
     images: [
-      'assets/IMG/image-1.jpg',
-      'assets/IMG/image.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
+      'assets/IMG/hotel-rooms/image.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
     ],
     roomNumber: 840,
     luxRoom: false,
     roomDayPrice: 9990,
     starAmount: 4,
     reviewAmount: 65,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-3',
     images: [
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 980,
     luxRoom: true,
     roomDayPrice: 8500,
     starAmount: 3,
     reviewAmount: 35,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-4',
     images: [
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 856,
     luxRoom: false,
     roomDayPrice: 7300,
     starAmount: 5,
     reviewAmount: 19,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-5',
     images: [
-      'assets/IMG/image-4.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-4.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 740,
     luxRoom: false,
     roomDayPrice: 6000,
     starAmount: 4,
     reviewAmount: 44,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-6',
     images: [
-      'assets/IMG/image-5.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-5.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 982,
     luxRoom: false,
     roomDayPrice: 5800,
     starAmount: 3,
     reviewAmount: 56,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-7',
     images: [
-      'assets/IMG/image-6.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-6.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 678,
     luxRoom: false,
     roomDayPrice: 5500,
     starAmount: 5,
     reviewAmount: 45,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-8',
     images: [
-      'assets/IMG/image-7.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-7.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 450,
     luxRoom: false,
     roomDayPrice: 5300,
     starAmount: 4,
     reviewAmount: 39,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-9',
     images: [
-      'assets/IMG/image-8.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-8.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 350,
     luxRoom: false,
     roomDayPrice: 5000,
     starAmount: 3,
     reviewAmount: 77,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-10',
     images: [
-      'assets/IMG/image-9.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-9.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 666,
     luxRoom: false,
     roomDayPrice: 5000,
     starAmount: 5,
     reviewAmount: 25,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-11',
     images: [
-      'assets/IMG/image-10.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-10.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 444,
     luxRoom: false,
     roomDayPrice: 5000,
     starAmount: 3,
     reviewAmount: 15,
+    link: 'roomDetails.html',
   },
   {
     id: 'roomCard-12',
     images: [
-      'assets/IMG/image-11.jpg',
-      'assets/IMG/image-2.jpg',
-      'assets/IMG/image-3.jpg',
-      'assets/IMG/image-1.jpg',
+      'assets/IMG/hotel-rooms/image-11.jpg',
+      'assets/IMG/hotel-rooms/image-2.jpg',
+      'assets/IMG/hotel-rooms/image-3.jpg',
+      'assets/IMG/hotel-rooms/image-1.jpg',
     ],
     roomNumber: 352,
     luxRoom: false,
     roomDayPrice: 5000,
     starAmount: 3,
     reviewAmount: 55,
+    link: 'roomDetails.html',
   },
 ];
 
@@ -178,8 +190,9 @@ class RoomCatalogPage {
     return this.#getRoomCardsArr;
   }
 
-  constructor(roomCatalog) {
+  constructor(roomCatalog, roomList) {
     this._roomCatalog = roomCatalog;
+    this._roomList = roomList;
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -224,6 +237,11 @@ class RoomCatalogPage {
     });
 
     sliderTrack.addEventListener('transitionend', checkIndex);
+    /* How does "transitionend" event work?
+
+    When time duration of the transition property go to the end after moving to any slide then "checkIndex" function launch.
+    If the slide we moved to is the last/first(I talk about "addition" one's) then we delete the ".shifting" class responsible for transition duration".
+    It allows us quickly move to the real last(from the first addtion slide)/first slide(from the last addtion slide) */
 
     function shiftDot(el) {
       dotIndex += el;
@@ -323,7 +341,9 @@ class RoomCatalogPage {
         }
       }
 
-      roomCatalogList = `<div class="room-card" id="${element.id}">
+      roomCatalogList = `<a class="room-card" id="${element.id}" href="${
+        element.link
+      }">
       <div class="room-card__slider">
         <ul class="room-card__slider-track">
           ${sliderImagesList}
@@ -369,9 +389,9 @@ class RoomCatalogPage {
           </span>
         </div>
       </div>
-      </div>`;
+      </a>`;
 
-      document.body.insertAdjacentHTML('beforeend', roomCatalogList);
+      this._roomList.insertAdjacentHTML('beforeend', roomCatalogList);
 
       const roomCard = document.getElementById(`${element.id}`);
 
@@ -392,5 +412,8 @@ class RoomCatalogPage {
   }
 }
 
-const roomCatalogPage = new RoomCatalogPage(roomCatalog);
-// roomCatalogPage.render;
+let roomList = document.querySelector('.search-room__room-cards-list');
+if (roomList !== null) {
+  const roomCatalogPage = new RoomCatalogPage(roomCatalog, roomList);
+  roomCatalogPage.render;
+}

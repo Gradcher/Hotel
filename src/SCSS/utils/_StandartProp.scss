@@ -7,11 +7,11 @@
 
 /* Убираем все лишние */
 button {
+    outline: none;
+    border: none;
+    background-color: transparent;
     padding: 0;
     cursor: pointer;
-    background-color: transparent;
-    border: none;
-    outline: none;
 }
 
 /* Убираем внутренние отступы
@@ -47,15 +47,13 @@ a {
 
 /* Выставляем основные настройки по-умолчанию для body */
 body {
-    display: flex; //for pressing footer
-    flex-direction: column; //for pressing footer
     min-height: 100vh;
     scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
     font-family: $font-montserrat;
     font-size: 14px;
-    font-weight: $font-weight-regular;
     line-height: 24px;
+    font-weight: $font-weight-regular;
+    text-rendering: optimizeSpeed;
 }
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
@@ -91,26 +89,30 @@ select {
 
 /* PROJECT PROPERTIES */
 
+p {
+    color: $dark-shade-75per;
+}
+
 h1 {
     font-size: 24px;
-    font-weight: 700;
     line-height: 120%; // 120% = 30px
+    font-weight: 700;
 }
 
 h2 {
     font-size: 19px;
-    font-weight: 700;
     line-height: 120%; // 120% = 24px
+    font-weight: 700;
 }
 
 h3 {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 120%; // 120% = ???
     text-transform: uppercase;
+    font-size: 12px;
+    line-height: 120%; // 120% = ???
+    font-weight: 700;
 }
 
 ::placeholder {
-    color: $darkShade25per;
+    color: $dark-shade-25per;
     transition-duration: $base-duration;
 }

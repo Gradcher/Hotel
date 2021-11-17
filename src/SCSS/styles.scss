@@ -1,42 +1,48 @@
-//Main
-@import './utils/vars.scss';
-@import './utils/fonts.scss';
-@import './utils/mixins.scss';
-@import './utils/standartProp.scss';
+// Main
+@import "./utils/vars";
+@import "./utils/fonts";
+@import "./utils/mixins";
+@import "./utils/standartProp";
 
 // Primitives
-@import '../PUG/includes/primitives/toggle/Toggle.scss';
-@import '../PUG/includes/primitives/radio/Radio.scss';
-@import '../PUG/includes/primitives/checkbox/Checkbox.scss';
-@import '../PUG/includes/primitives/likeBtn/LikeBtn.scss';
-@import '../PUG/includes/primitives/rateBtn/RateBtn.scss';
-@import '../PUG/includes/primitives/doubleSlider/DoubleSlider.scss';
-@import '../PUG/includes/primitives/pagination/Pagination.scss';
-@import '../PUG/includes/primitives/buttons/Buttons.scss';
-@import '../PUG/includes/primitives/dropdown/Dropdown.scss';
-@import '../PUG/includes/primitives/textField/TextField.scss';
-@import '../PUG/includes/primitives/rangeCalendar/RangeCalendar.scss';
+@import "../PUG/includes/primitives/toggle/Toggle";
+@import "../PUG/includes/primitives/radio/Radio";
+@import "../PUG/includes/primitives/checkbox/Checkbox";
+@import "../PUG/includes/primitives/likeBtn/LikeBtn";
+@import "../PUG/includes/primitives/rateBtn/RateBtn";
+@import "../PUG/includes/primitives/doubleSlider/DoubleSlider";
+@import "../PUG/includes/primitives/pagination/Pagination";
+@import "../PUG/includes/primitives/buttons/Buttons";
+@import "../PUG/includes/primitives/dropdown/Dropdown";
+@import "../PUG/includes/primitives/textField/TextField";
+@import "../PUG/includes/primitives/rangeCalendar/RangeCalendar";
+
 // Base blocks
-@import '../PUG/includes/baseBlocks/expandableChboxList/ExpandableChboxList.scss';
-@import '../PUG/includes/baseBlocks/chboxList/ChboxList.scss';
-@import '../PUG/includes/baseBlocks/bulletList/BulletList.scss';
-@import '../PUG/includes/baseBlocks/review/Review.scss';
-@import '../PUG/includes/baseBlocks/advantages/Advantages.scss';
-@import '../PUG/includes/baseBlocks/registration/Registration.scss';
-@import '../PUG/includes/baseBlocks/login/Login.scss';
-@import '../PUG/includes/baseBlocks/roomSearch/RoomSearch.scss';
-@import '../PUG/includes/baseBlocks/roomPrice/RoomPrice.scss';
-@import '../PUG/includes/baseBlocks/roomCard/RoomCard.scss';
-@import '../PUG/includes/baseBlocks/header/Header.scss';
-@import '../PUG/includes/baseBlocks/footer/Footer.scss';
-//Layouts
-@import '../SCSS/layouts/Cards.scss';
-@import '../SCSS/layouts/LandingPage.scss';
-@import '../SCSS/layouts/Login.scss';
+@import "../PUG/includes/baseBlocks/expandableChboxList/ExpandableChboxList";
+@import "../PUG/includes/baseBlocks/chboxList/ChboxList";
+@import "../PUG/includes/baseBlocks/bulletList/BulletList";
+@import "../PUG/includes/baseBlocks/review/Review";
+@import "../PUG/includes/baseBlocks/advantages/Advantages";
+@import "../PUG/includes/baseBlocks/registrationCard/registrationCard";
+@import "../PUG/includes/baseBlocks/loginCard/LoginCard";
+@import "../PUG/includes/baseBlocks/roomSearchCard/RoomSearchCard";
+@import "../PUG/includes/baseBlocks/roomPriceCard/RoomPriceCard";
+@import "../PUG/includes/baseBlocks/roomCard/RoomCard";
+@import "../PUG/includes/baseBlocks/header/Header";
+@import "../PUG/includes/baseBlocks/footer/Footer";
+
+// Layouts
+@import "../SCSS/layouts/Cards";
+@import "../SCSS/layouts/LandingPage";
+@import "../SCSS/layouts/Login";
+@import "../SCSS/layouts/SearchRoom";
+@import "../SCSS/layouts/RoomDetails";
+@import "../SCSS/layouts/HeadersAndFooters";
+
 // Datepicker
 /* Site — https://mymth.github.io/vanillajs-datepicker */
 // @import '/node_modules/vanillajs-datepicker/sass/datepicker.scss'; // — base calendar SCSS
-@import '../PUG/includes/primitives/calendar/datepicker.scss';
+@import "../PUG/includes/primitives/calendar/datepicker";
 
 .h3-title {
     &--margin--16 {
@@ -48,12 +54,17 @@
     }
 }
 
-.block-desc {
-    margin: 0 20px 40px 10px;
+.form-elements-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 100px;
+    grid-column-gap: 20px;
+    justify-items: center;
 }
 
-.form-elements-wrap {
-    margin: 100px 0 0 100px;
+.form-elements-grid-el {
+    margin: 0;
 }
 
 .logo-sign-wrap {
@@ -61,45 +72,48 @@
     margin: 30px 0 0 30px;
 }
 
+.block-desc + .block-desc {
+    margin-top: 20px;
+}
+
 .wrap-color-and-type {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 50px;
-    padding: 0 30px;
-    margin-top: 67px;
+    padding: 100px;
+    grid-column-gap: 50px;
 }
 
 .color-pallete {
     margin: 0 auto;
 
     &__visual-repres {
-        min-width: 70px;
-        height: 70px;
-        margin-right: 40px;
         border-radius: 6px;
+        margin-right: 40px;
+        height: 70px;
+        min-width: 70px;
     }
 
     &__item {
         display: flex;
 
         &:first-child .color-pallete__visual-repres {
-            background-color: $darkShade100per;
+            background-color: $dark-shade-100per;
         }
 
         &:nth-child(2) .color-pallete__visual-repres {
-            background-color: $darkShade75per;
+            background-color: $dark-shade-75per;
         }
 
         &:nth-child(3) .color-pallete__visual-repres {
-            background-color: $darkShade50per;
+            background-color: $dark-shade-50per;
         }
 
         &:nth-child(4) .color-pallete__visual-repres {
-            background-color: $darkShade25per;
+            background-color: $dark-shade-25per;
         }
 
         &:nth-child(5) .color-pallete__visual-repres {
-            background-color: $darkShade5per;
+            background-color: $dark-shade-5per;
         }
 
         &:nth-child(6) .color-pallete__visual-repres {
@@ -147,21 +161,32 @@
     }
 
     &__size {
-        min-width: 40px;
         margin-right: 30px;
+        min-width: 40px;
         overflow: hidden;
-        font-weight: normal;
-        color: $darkShade25per;
-        text-align: right;
         text-overflow: ellipsis;
+        font-weight: normal;
+        color: $dark-shade-25per;
+        text-align: right;
     }
 }
 
 .logo {
     display: block;
-    width: 106px;
     min-width: 106px;
+    width: 106px;
 }
 
-//Main
-@import './utils/media.scss';
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: inherit; // inherit = body min-width: 100vh
+    padding-top: 70px; // 70px = header height
+}
+
+.content {
+    flex-grow: 1; // for pressing footer
+}
+
+// Main
+@import "./utils/media";

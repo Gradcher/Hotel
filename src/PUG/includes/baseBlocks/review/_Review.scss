@@ -5,12 +5,12 @@
     }
 
     &__client-avatar {
-        box-sizing: border-box;
-        width: 48px;
-        height: 48px;
-        margin-right: 10px;
         border: 2px solid #fff;
         border-radius: 50%;
+        margin-right: 10px;
+        height: 48px;
+        width: 48px;
+        box-sizing: border-box;
         box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
     }
 
@@ -18,13 +18,13 @@
         margin-bottom: 2px;
         font-size: 14px;
         font-weight: 700;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 
     &__publication-date {
         font-size: 14px;
         font-weight: $font-weight-regular;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 
     &__content {
@@ -32,8 +32,8 @@
     }
 
     &__likeBtn-wrap {
-        min-width: 48px;
         margin-right: 10px;
+        min-width: 48px;
 
         & > .like-btn {
             margin: auto;
@@ -43,9 +43,9 @@
     &__text {
         max-width: 660px;
         overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 14px;
         font-weight: $font-weight-regular;
-        color: $darkShade75per;
-        text-overflow: ellipsis;
+        color: $dark-shade-75per;
     }
 }

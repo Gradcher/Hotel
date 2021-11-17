@@ -3,10 +3,10 @@ include ../../primitives/dropdown/dropdown.pug
 include ../../primitives/buttons/buttons.pug
 
 .card.room-search
-    h1.card__solo-el-wrap-small Найдём номера под ваши пожелания
+    h1.card__title Найдём номера под ваши пожелания
     form.card__form
         .card__solo-el-wrap-small
             +rangeCalendar({text: {start: "прибытие", end: "выезд"}})
         .card__solo-el-wrap-big
             +dropdown({dropdownTitle: "гости", type: "guests"})
-        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "подобрать номер", typeAttr: "button"})
+        +button({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "подобрать номер", typeAttr: "button"})

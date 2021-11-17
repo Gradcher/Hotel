@@ -1,0 +1,246 @@
+.room-details-gallery {
+    @include size(1920px, 485px);
+
+    position: relative;
+    margin: 0 auto 70px;
+    max-width: 100%;
+
+    &__container {
+        @include size(100%);
+
+        position: absolute;
+        top: 0;
+        display: grid;
+        align-items: stretch;
+        grid-template-columns: 2.2fr 1fr;
+        grid-template-rows: 50% 50%; // 1fr 1fr don't work properly
+        justify-items: stretch;
+    }
+
+    &__image {
+        object-fit: cover;
+
+        &:nth-child(1) {
+            grid-row: span 2;
+        }
+    }
+}
+
+.room-details-info {
+    border-bottom: 1px solid $dark-shade-25per;
+    min-height: 100vh;
+    padding: 0 20px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0 auto;
+        margin-bottom: 70px;
+        max-width: 100%;
+        width: 1160px;
+    }
+
+    &__left-side-container {
+        margin-right: 20px;
+
+        > * + * {
+            margin-top: 30px;
+        }
+    }
+
+    &__sub-container {
+        display: flex;
+
+        > * + * {
+            margin-left: 70px;
+        }
+    }
+
+    &__room-advantages {
+        & > .advantage + .advantage {
+            margin-top: 20px;
+        }
+    }
+
+    &__review {
+        position: relative;
+
+        & > .review + .review {
+            margin-top: 20px;
+        }
+    }
+
+    &__review-amount {
+        position: absolute;
+        top: 1px;
+        right: 0;
+        font-size: 14px;
+        font-weight: $font-weight-regular;
+        color: $dark-shade-50per;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+
+        &--review {
+            margin-right: 120px;
+        }
+    }
+
+    &__cancel {
+        max-width: 100%;
+        width: 340px;
+    }
+
+    &__impression-descrp {
+        display: flex;
+        align-items: center;
+
+        & > * + * {
+            margin-left: 30px;
+        }
+    }
+
+    &__impression-list {
+        list-style: none;
+    }
+
+    &__impression-list-item {
+        $gradients: $gold-gradient, $blue-green-gradient, $pink-purple-gradient,
+            $black-graident;
+        $gradients-length: length($gradients);
+
+        /* The loop and mixin above do the same thing
+
+        &:nth-child(1)::before {
+            background: $gold-gradient;
+        }
+        &:nth-child(2)::before {
+            background: $blue-green-gradient;
+        }
+        &:nth-child(3)::before {
+            background: $pink-purple-gradient;
+        }
+        &:nth-child(4)::before {
+            background: $black-graident;
+        }
+        */
+
+        position: relative;
+        margin-left: 15px;
+
+        @mixin icon-32($gradient, $i) {
+            &:nth-child(#{$i})::before {
+                background: $gradient;
+            }
+        }
+
+        @for $i from 1 through $gradients-length {
+            @include icon-32(nth($gradients, $i), $i);
+        }
+
+        &::before {
+            @include size(10px);
+
+            position: absolute;
+            top: 7px;
+            left: -15px;
+            content: "";
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        & + & {
+            margin-top: 4px;
+        }
+    }
+}
+
+.impression-cirle {
+    @include circle-size(120px); // read more in _Mixins.scss file
+
+    position: relative;
+
+    &__container {
+        @include size(inherit);
+
+        position: absolute;
+        border-radius: 100%;
+    }
+
+    &__slice-circle {
+        /* hides left side of the full circle. This part never will be seen. */
+
+        @include size(inherit);
+
+        position: absolute;
+        border-radius: 100%;
+        // clip: rect(0, $circle-size, $circle-size, ($circle-size / 2 + 1)); — in circle-size mixin
+
+        &:nth-child(1) {
+            & > .impression-cirle__circle {
+                transform: rotate(90deg);
+                background: $pink-purple-gradient;
+            }
+        }
+
+        &:nth-child(2) {
+            transform: rotate(90deg); /* start point for next circle */
+
+            & > .impression-cirle__circle {
+                transform: rotate(90deg); /* 90deg rotating of circle itself */
+                background: $blue-green-gradient;
+            }
+        }
+
+        &:nth-child(3) {
+            transform: rotate(180deg);
+
+            & > .impression-cirle__circle {
+                transform: rotate(180deg);
+                background: $gold-gradient;
+            }
+        }
+    }
+
+    &__circle {
+        /* hides right side of the full circle. Without rotating property next
+        selectors the right side still will be unvisible.
+        Visible part completely relates on rotating properties */
+
+        @include size(inherit);
+
+        position: absolute;
+        border-radius: 100%;
+        // clip: rect(0, ($circle-size / 2 - 1), $circle-size, 0);  — in circle-size mixin
+    }
+
+    &__inner-circle {
+        // @include size(($circle-size - 4 - 4));  — in circle-size mixin
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        margin: auto;
+        background-color: #fff;
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: $font-weight-bold;
+        color: $purple;
+    }
+
+    &__text {
+        color: $purple;
+    }
+}

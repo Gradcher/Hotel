@@ -1,0 +1,74 @@
+.search-room {
+    border-bottom: 1px solid $dark-shade-25per;
+    min-height: 100vh;
+    max-width: 100%;
+    padding: 30px 20px 0;
+    position: relative;
+
+    &__container {
+        display: flex;
+        margin: 0 auto;
+        margin-bottom: 70px;
+        max-width: 100%;
+        width: 1160px;
+    }
+
+    &__sidebar-container {
+        margin-right: 60px;
+        max-width: 266px;
+    }
+
+    &__sidebar-el-wrap {
+        & + & {
+            margin-top: 30px;
+        }
+
+        &:last-of-type {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__room-cards-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 40px;
+        width: 100%;
+        column-gap: 12px;
+        row-gap: 20px;
+    }
+
+    &__cards-top-wrap {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+    }
+
+    &__option-btn {
+        z-index: 15;
+        position: relative;
+        display: none;
+        height: 30px;
+        min-width: 30px;
+        cursor: pointer;
+        background: {
+            position: center;
+            repeat: no-repeat;
+            size: cover;
+            image: url("/src/SVG/sliders-ico.svg");
+        }
+    }
+}

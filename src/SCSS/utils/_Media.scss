@@ -1,11 +1,26 @@
-@media (max-width: 768px) {
+/* header */
+
+@media all and (max-width: 980px) {
+    .header__burger,
+    .header__login-link {
+        display: block;
+    }
+
+    .header__wrap-group-elements {
+        display: none;
+    }
+}
+
+/* footer */
+
+@media all and (max-width: 768px) {
     .footer {
         margin-top: 120px;
     }
 
     .footer__text {
+        margin: 20px 0 25px;
         text-align: center;
-        margin: 20px 0 25px 0;
     }
 
     .footer__top {
@@ -18,5 +33,267 @@
 
     .footer__mobile {
         display: block;
+    }
+}
+
+/* roomSearch */
+
+@media all and (max-width: 1140px) {
+    .search-room__sidebar-container {
+        margin-right: 30px;
+    }
+}
+
+@media all and (max-width: 1110px) {
+    .search-room {
+        &__sidebar-container {
+            margin-right: 0;
+        }
+
+        &__sidebar {
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: -100%;
+            border-radius: 0 0 4px 0;
+            background-color: #fff;
+            max-width: 100%;
+            width: 550px;
+            padding: 30px 0 80px 20px;
+            transition-duration: 0.3s;
+
+            &--active {
+                left: 0;
+                box-shadow: $sidebar-shadow;
+            }
+        }
+
+        &__sidebar-el-wrap:last-of-type {
+            display: block;
+        }
+
+        &__option-btn {
+            display: block;
+        }
+    }
+}
+
+@media all and (max-width: 820px) {
+    .search-room__room-cards-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (max-width: 620px) {
+    .search-room__sidebar {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 560px) {
+    .search-room__room-cards-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media all and (max-width: 460px) {
+    .search-room__title {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 360px) {
+    /* hiding option-btn by encreasig z-index, i-index of option-btn is 15 */
+    .search-room__sidebar--active {
+        z-index: 16;
+    }
+}
+
+/* roomDetails */
+
+// scrollbar width = 17px
+@media all and (max-width: 1122px) {
+    /* Adaptive gallery */
+    .room-details-gallery {
+        margin-bottom: 30px;
+        height: auto;
+        padding-top: 43.8%; // 485 / 1105
+    }
+
+    /* roomPriceCard moves down */
+    .room-details-info {
+        &__container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__left-side-container {
+            margin-right: 0;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media all and (max-width: 720px) {
+    /* from 70px gap between to adaptive up to 20px */
+    .room-details-info {
+        &__sub-container:last-of-type {
+            justify-content: space-between;
+
+            > * + * {
+                margin-left: 20px;
+            }
+        }
+
+        /* impression-descrp moves down */
+        &__impression-descrp {
+            flex-direction: column;
+            align-items: flex-start;
+
+            & > * + * {
+                margin-top: 20px;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 670px) {
+    /* cancel block moves down */
+    .room-details-info {
+        &__sub-container:last-of-type {
+            flex-direction: column;
+
+            > * + * {
+                margin-top: 30px;
+                margin-left: 0;
+            }
+        }
+    }
+
+    /* 100% stretching of blocks */
+    .room-details-info__rules > .bullet-list,
+    .room-details-info__cancel {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 560px) {
+    /* from 70px gap between to adaptive up to 30px */
+    .room-details-info {
+        &__sub-container:first-of-type {
+            justify-content: space-between;
+
+            > * + * {
+                margin-left: 30px;
+            }
+        }
+
+        /* Fixed size for realization adaptive gap from 70px to 30px */
+        &__room-impression {
+            max-width: 160px;
+        }
+    }
+}
+
+@media all and (max-width: 520px) {
+    /* circle block moves down */
+    .room-details-info {
+        &__sub-container:first-of-type {
+            flex-direction: column;
+
+            > * + * {
+                margin-top: 30px;
+                margin-left: 0;
+            }
+        }
+
+        /* from fixed size(160px) to full size */
+        &__room-impression {
+            max-width: 100%;
+        }
+
+        /* moving impression-descrp back to right */
+        &__impression-descrp {
+            flex-direction: row;
+            justify-content: center;
+
+            & > * + * {
+                margin-top: 0;
+                margin-left: 20px;
+            }
+        }
+
+        /* advantage blocks centering */
+        &__room-advantages > .advantage {
+            margin: 0 auto;
+        }
+    }
+}
+
+@media all and (max-width: 390px) {
+    .room-details-info {
+        /* moving review-amount block to bottom */
+        &__review-amount {
+            position: static;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        &__title--review {
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media all and (max-width: 350px) {
+    /* impression-cirle block reducing */
+    .impression-cirle {
+        @include circle-size(100px);
+
+        &__title {
+            font-size: 22px;
+        }
+
+        &__text {
+            font-size: 16px;
+        }
+    }
+}
+
+/* Cards */
+
+@media all and (max-width: 400px) {
+    .card__title {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 360px) {
+    .card {
+        padding: 30px 15px 15px;
+    }
+}
+
+@media all and (max-width: 330px) {
+    .toggle__text,
+    .card__text {
+        font-size: 13px;
+    }
+}
+
+/* landingPage  */
+@media all and (max-width: 980px) {
+    .landing {
+        height: auto;
+        padding-top: 83%; // 830 / 980
+    }
+}
+
+@media all and (max-width: 700px) {
+    .landing {
+        height: 580px;
+        padding-top: 0%; // 830 / 980
     }
 }

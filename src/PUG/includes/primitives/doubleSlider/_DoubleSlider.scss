@@ -1,13 +1,12 @@
 /*
 Slider is based on these videos:
-https://www.youtube.com/watch?v=pTlsnFLiK6c&list=LL&index=53&t=315s
-
-https://www.youtube.com/watch?v=DfSYmk_6vk8&t=915s
+https://www.youtube.com/watch?v=pTlsnFLiK6c&list=LL&index=53&t=315s js + html
+https://www.youtube.com/watch?v=DfSYmk_6vk8&t=915s js + css
 */
 
 .slider {
-    width: 266px;
     max-width: 100%;
+    width: 266px;
 
     &__header {
         display: flex;
@@ -18,11 +17,11 @@ https://www.youtube.com/watch?v=DfSYmk_6vk8&t=915s
     &__title {
         width: 50%;
         overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
         font-size: 12px;
         font-weight: 700;
         color: #000;
-        text-overflow: ellipsis;
-        text-transform: uppercase;
     }
 
     &__range-value-list {
@@ -35,60 +34,62 @@ https://www.youtube.com/watch?v=DfSYmk_6vk8&t=915s
     &__range-value-item {
         margin-top: 0;
         font-size: 12px;
-        color: $darkShade50per;
+        color: $dark-shade-50per;
 
         &::after {
-            content: '₽';
+            content: "₽";
         }
 
         & + & {
             &::before {
+                content: "-";
                 margin: 0 2px;
-                content: '-';
             }
         }
     }
 
     &__wrap {
         position: relative;
-        width: 100%;
+        margin-bottom: 10px;
         height: 14px;
+        width: 100%;
     }
 
     &__track {
+        z-index: -2; // for firefox
         position: absolute;
         top: 0;
         bottom: 0;
-        box-sizing: border-box;
-        width: 100%;
-        height: 6px;
-        margin: auto;
-        border: 1px solid $darkShade25per;
+        border: 1px solid $dark-shade-25per;
         border-radius: 3px;
+        margin: auto;
+        height: 6px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     &__range-between {
+        z-index: -1; // for firefox
         position: absolute;
         top: 0;
         bottom: 0;
-        z-index: 1;
-        height: 6px;
-        margin: auto;
-        background: $blueGreenGradient;
         border-radius: 3px;
+        margin: auto;
+        background: $blue-green-gradient;
+        height: 6px;
     }
 
     &__range-input {
         position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: transparent;
+        width: 100%;
+        pointer-events: none;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none; /* all three properties remove slider's strip */
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        margin: auto;
-        pointer-events: none;
-        background-color: transparent;
 
         &::-webkit-slider-runnable-track {
             -webkit-appearance: none;
@@ -103,49 +104,51 @@ https://www.youtube.com/watch?v=DfSYmk_6vk8&t=915s
         }
 
         &::-webkit-slider-thumb {
+            @include size(14px);
+
+            z-index: 1; // for firefox
             position: relative;
-            z-index: 2;
-            -webkit-appearance: none; // removing slider's button
-            box-sizing: border-box;
-            pointer-events: auto;
-            cursor: pointer;
-            background: $blueGreenGradient;
             border: 2px solid #fff;
             border-radius: 50%;
-
-            @include size(14px);
+            background: $blue-green-gradient;
+            box-sizing: border-box;
+            cursor: pointer;
+            pointer-events: auto;
+            -webkit-appearance: none; // removing slider's button
         }
 
         &::-moz-range-thumb {
+            @include size(14px);
+
+            z-index: 1; // for firefox
             position: relative;
-            z-index: 2;
-            -webkit-appearance: none; // removing slider's button
-            box-sizing: border-box;
-            pointer-events: auto;
-            cursor: pointer;
-            background: $blueGreenGradient;
             border: 2px solid #fff;
             border-radius: 50%;
-
-            @include size(14px);
+            background: $blue-green-gradient;
+            box-sizing: border-box;
+            cursor: pointer;
+            pointer-events: auto;
+            -webkit-appearance: none; // removing slider's button
         }
 
         &::-ms-thumb {
+            @include size(14px);
+
+            z-index: 1; // for firefox
             position: relative;
-            z-index: 2;
-            appearance: none; // removing slider's button
-            box-sizing: border-box;
-            pointer-events: auto;
-            cursor: pointer;
-            background: $blueGreenGradient;
             border: 2px solid #fff;
             border-radius: 50%;
-
-            @include size(14px);
+            background: $blue-green-gradient;
+            box-sizing: border-box;
+            cursor: pointer;
+            pointer-events: auto;
+            appearance: none; // removing slider's button
         }
+    }
 
-        &:active::-webkit-slider-thumb {
-            background-color: #fff;
-        }
+    &__description-text {
+        font-size: 12px;
+        line-height: 14px;
+        color: $dark-shade-50per;
     }
 }

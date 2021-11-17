@@ -6,12 +6,16 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
+        meta(name="keywords", content="отель, снять комнату, подобрать номер")
+        meta(name="description", content="Найдите подходящий вам номер, среди тысячи различных отелей")
+        title Отели на любой вкус. Подобрать номер прямо сейчас
         include ../includes/baseBlocks/script
     body
-        +header({userAuthorization: false})
-        .landing
-            .landing__container
-                include ../includes/baseBlocks/roomSearch/roomSearch.pug
-                p.landing__text Лучшие номера для вашей работы, отдыха и просто вдохновения
-        include ../includes/baseBlocks/footer/footer.pug
+        .wrapper
+            +header({userAuthorization: false})
+            main.content
+                .landing
+                    .landing__container
+                        include ../includes/baseBlocks/roomSearchCard/roomSearchCard.pug
+                        p.landing__text Лучшие номера для вашей работы, отдыха и просто вдохновения
+            include ../includes/baseBlocks/footer/footer.pug

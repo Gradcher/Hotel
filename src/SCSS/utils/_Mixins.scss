@@ -2,6 +2,7 @@
     width: $width;
     height: $height;
 }
+
 /* "$height: $width" — if we don't pass «height» value in function as the second argument, then «height» is settled as «width»
 Example:
 sass: size(25%)
@@ -10,17 +11,52 @@ css result:
   height: 25%;
 */
 
-@mixin placeholder {
-    ::-webkit-input-placeholder {
-        @content;
+@mixin circle-size($size) {
+    @include size($size);
+
+    &__slice-circle {
+        clip: rect(0, $size, $size, ($size / 2 + 1));
     }
-    :-moz-placeholder {
-        @content;
+
+    &__circle {
+        clip: rect(0, ($size / 2 - 1), $size, 0);
     }
-    ::-moz-placeholder {
-        @content;
-    }
-    :-ms-input-placeholder {
-        @content;
+
+    &__inner-circle {
+        @include size(($size - 4 - 4));
     }
 }
+
+/* I had to use this mixin instead variable because we cant't use variables in media requests.
+For example:
+NOT WORKING EXAMPLE:
+---scss file
+.div {
+    $variable1: 20px;
+    width: $variable1;
+    line-height: $variable1
+}
+
+---media file
+@media (max-width: 390px) {
+    $variable1: 100px — this won't work. You need to create mixin like the one above.
+}
+
+WORKING EXAMPLE:
+---mixin file
+@mixin size($variable1){
+    width: $variable1;
+    line-height: $variable1
+}
+
+---scss file
+.div {
+    @include size(20px)
+}
+
+---media file
+@media (max-width: 390px) {
+    @include size(100px) — this will work
+}
+
+More about this troube here — https://qastack.ru/programming/9122195/using-sass-variables-with-css3-media-queries */

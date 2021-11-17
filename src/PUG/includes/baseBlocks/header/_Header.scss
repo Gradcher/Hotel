@@ -1,29 +1,34 @@
 .header {
-    width: 100%;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
     height: 70px;
+    width: 100%;
     padding: 0 20px;
     box-shadow: $light-shadow;
 
     &__container {
         position: relative;
         top: 50%;
-        display: flex;
-        align-items: center;
-        max-width: 1160px;
-        margin: 0 auto;
         transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 1160px;
     }
 
     &__navbar {
         display: flex;
-        margin-right: 20px;
-        margin-left: auto;
         list-style: none;
     }
 
     &__navbar-item {
         min-width: 45px;
-        color: $darkShade50per;
+        padding: 10px 0;
+        color: $dark-shade-50per;
         cursor: pointer;
 
         & + & {
@@ -32,49 +37,140 @@
     }
 
     &__navbar__link {
-        color: $darkShade50per;
+        color: $dark-shade-50per;
     }
 
-    &__navbar-item--highlighted {
+    &__navbar-item--highlighted > a {
         font-weight: $font-weight-bold;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 
     &__navbar-item--dropdown {
         position: relative;
-        margin-right: calc(6px + 12px + 6px);
+        padding-right: 24px;
 
         &::after {
+            @include size(24px);
+
             position: absolute;
-            top: calc(
-                (24px - 12px) / 2
-            ); //lihe height = 24px, icon height = 12px, (24px - 12px) / 2 = 6px
-            right: calc(-6px - 12px - 6px);
-            content: '';
+            content: "";
             transition-duration: $base-duration;
             background: {
-                image: url('/src/SVG/angle-dark-ico.svg');
-                repeat: no-repeat;
                 position: center;
+                image: url("/src/SVG/angle-dark-ico.svg");
+                repeat: no-repeat;
             }
+        }
 
-            @include size(12px);
+        &:hover > .header__navbar-sublist {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
         }
     }
 
-    &__wrap-for-el {
-        margin-right: 20px;
+    &__navbar-sublist {
+        position: absolute;
+        top: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(10%);
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 5px;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: 15px;
+        list-style: none;
+        pointer-events: none;
+        transition-duration: $base-duration;
+        box-shadow: $card-shadow;
+    }
+
+    &__navbar-sublist-el {
+        & + & {
+            margin-top: 5px;
+        }
+
+        &:hover > .header__navbar-sublist-link {
+            color: $dark-shade-75per;
+        }
+    }
+
+    &__navbar-sublist-link {
+        color: $dark-shade-50per;
+        transition-duration: $base-duration;
+    }
+
+    &__wrap-group-elements {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > * + * {
+            margin-left: 20px;
+        }
     }
 
     &__user {
+        border-left: 1px solid $dark-shade-10per;
         height: 30px;
         padding-left: 20px;
-        border-left: 1px solid $darkShade10per;
     }
 
     &__user-link {
-        line-height: 30px;
-        color: $darkShade50per;
         white-space: nowrap;
+        line-height: 30px;
+        color: $dark-shade-50per;
     }
+
+    &__login-link {
+        @include size(30px);
+
+        display: none;
+        transition-duration: $base-duration;
+        background: {
+            position: center;
+            image: url("/src/SVG/user-ico.svg");
+            repeat: no-repeat;
+        }
+    }
+
+    &__burger {
+        position: relative;
+        display: none;
+        height: 20px;
+        min-width: 30px;
+        cursor: pointer;
+        transition-duration: $base-duration;
+
+        &::before {
+            top: 0;
+            content: "";
+        }
+
+        &::after {
+            bottom: 0;
+            content: "";
+        }
+
+        &-middle-line {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.header__burger:hover,
+.header__login-link:hover {
+    transform: scale(1.2);
+}
+
+.header__burger::before,
+.header__burger::after,
+.header__burger-middle-line {
+    @include size(100%, 20%);
+    position: absolute;
+    left: 0;
+    background-color: $dark-shade-50per;
 }

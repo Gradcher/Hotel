@@ -4,10 +4,15 @@ mixin textField (options)
         var placeholderValue = options.placeholder
         var nameValue = options.name
         var modificator = options.modificator
+        var readonly = options.readonly
 
     if typeValue === "password"
         .text-field(class=modificator)
             input.text-field__input(type=typeValue placeholder=placeholderValue name=nameValue autocomplete="on")
     else
-        .text-field(class=modificator)
-            input.text-field__input(type=typeValue placeholder=placeholderValue name=nameValue)
+        if readonly
+            .text-field(class=modificator)
+                input.text-field__input(type=typeValue placeholder=placeholderValue name=nameValue readonly)
+        else
+            .text-field(class=modificator)
+                input.text-field__input(type=typeValue placeholder=placeholderValue name=nameValue)

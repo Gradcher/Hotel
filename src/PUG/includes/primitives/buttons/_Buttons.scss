@@ -1,14 +1,18 @@
 .btn {
+    display: inline-block;
     height: 44px;
+    text-align: center;
+
     &__text {
         text-transform: uppercase;
+        line-height: 44px;
     }
 
     &--type--filled {
+        border-radius: 25px;
+        background: $pink-purple-gradient;
         min-width: 99px;
         padding: 0 20px;
-        background: $pinkPurpleGradient;
-        border-radius: 25px;
         transition-duration: $base-duration;
 
         & > .btn__text {
@@ -17,50 +21,51 @@
 
         &--arrow {
             position: relative;
-            width: 320px;
-            min-width: 220px;
             max-width: 100%;
+            min-width: 220px;
+            width: 320px;
 
             &::after {
+                @include size(16px);
+
                 position: absolute;
                 top: 0;
-                right: 14px;
                 bottom: 0;
+                right: 14px;
+                content: "";
                 margin: auto;
-                content: '';
-                background-image: url('/src/SVG/arrow-ico.svg');
+                background-image: url("/src/SVG/arrow-ico.svg");
                 background-position: center;
-
-                @include size(16px);
             }
         }
     }
 
     &--type--unfilled {
         position: relative;
-        box-sizing: border-box;
-        min-width: 99px;
-        padding: 0 calc(20px - 2px);
-        background-color: #fff;
-        background-clip: padding-box;
         border: solid 2px transparent;
         border-radius: 25px;
+        background-color: #fff;
+        background-clip: padding-box;
+        min-width: 99px;
+        box-sizing: border-box;
+        padding: 0 calc(20px - 2px);
 
         & > .btn__text {
+            line-height: calc(44px - 2px - 2px);
             color: $purple;
         }
 
         &::before {
+            z-index: -1;
             position: absolute;
             top: 0;
-            right: 0;
             bottom: 0;
             left: 0;
-            z-index: -1;
-            margin: -2px;
-            content: '';
-            background: $pinkPurpleGradient;
+            right: 0;
+            content: "";
             border-radius: inherit;
+            margin: -2px;
+            background: $pink-purple-gradient;
             transition-duration: $base-duration;
         }
     }
@@ -74,7 +79,7 @@
         }
 
         &:hover.btn--type--without-border > .btn__text {
-            color: $darkShade50per;
+            color: $dark-shade-50per;
         }
     }
 }

@@ -3,8 +3,9 @@ mixin advantage(options)
         var title = options.txt.title
         var descr = options.txt.descr
         var nameIcon = options.nameIcon
+        var underline = options.underline ? "advantage--underline" : ""
 
-    .advantage
+    .advantage(class=underline)
         .advantage__wrap
             .advantage__icon(class = `advantage__icon--${nameIcon}`)
             .advantage__text-wrap

@@ -10,7 +10,7 @@ include ../../primitives/buttons/buttons.pug
         span.room-price__day-price #[b.room-price__day-price.room-price__day-price--highlighted 9990₽] в сутки
     form.card__form
         .card__solo-el-wrap-small
-            +rangeCalendar({text: {start: "прибытие", end: "выезд"}})
+            //- +rangeCalendar({text: {start: "прибытие", end: "выезд"}})
         .card__solo-el-wrap-small
             +dropdown({dropdownTitle: "гости", type: "guests"})
     ul.room-price__price-list
@@ -28,4 +28,4 @@ include ../../primitives/buttons/buttons.pug
             h1.room-price__final-price-text Итого
             hr.room-price__final-price-line
             h1.room-price__final-price-text 38 081₽
-    +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "забронировать", typeAttr: "button"})
+    +button({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "забронировать", typeAttr: "button"})

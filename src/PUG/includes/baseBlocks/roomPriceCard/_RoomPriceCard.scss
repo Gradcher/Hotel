@@ -1,8 +1,8 @@
 .room-price {
     &__title-wrap {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 20px;
     }
 
@@ -15,22 +15,22 @@
         margin-right: 8px;
 
         &::before {
+            content: "№";
             margin-right: 2px;
             font-size: 14px;
-            content: '№';
         }
     }
 
     &__type {
+        text-transform: uppercase;
         font-size: 12px;
         font-weight: 700;
         color: $purple;
-        text-transform: uppercase;
     }
 
     &__day-price {
         font-size: 14px;
-        color: $darkShade50per;
+        color: $dark-shade-50per;
 
         &--highlighted {
             font-weight: $font-weight-bold;
@@ -47,8 +47,8 @@
     }
 
     &__final-price-line {
+        border: 1px dashed $dark-shade-25per;
         width: 100%;
-        border: 1px dashed $darkShade25per;
     }
 
     &__price-list {
@@ -68,26 +68,26 @@
         position: relative;
         width: 75%;
         padding-right: 25px;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 
     &__price-el-desc--info::after {
+        @include size(20px);
+
         position: absolute;
         top: 2px;
         right: 0;
+        content: "";
         cursor: pointer;
-        content: '';
         background: {
-            image: url('/src/SVG/info-ico.svg');
-            repeat: no-repeat;
             position: center;
+            image: url("/src/SVG/info-ico.svg");
+            repeat: no-repeat;
         }
-
-        @include size(20px);
     }
 
     &__price-el-price {
         margin-left: auto;
-        color: $darkShade75per;
+        color: $dark-shade-75per;
     }
 }

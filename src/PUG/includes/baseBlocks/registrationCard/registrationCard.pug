@@ -3,8 +3,8 @@ include ../../primitives/radio/radio.pug
 include ../../primitives/toggle/toggle.pug
 include ../../primitives/buttons/buttons.pug
 
-.card.registration
-    h1.card__solo-el-wrap-small Регистрация аккаунта
+.card.registration-card
+    h1.card__title Регистрация аккаунта
     form.card__form(method="post")
         .card__group-wrap
             +textField({type: "text", placeholder: "Имя", name: "user-name"})
@@ -14,14 +14,14 @@ include ../../primitives/buttons/buttons.pug
                 +radio({txt: "Женщина", name: "sex"})
         h3.h3-title.h3-title--margin--5 дата рождения
         .card__solo-el-wrap-big
-            +textField({type: "text", placeholder: "ДД.ММ.ГГГГ", name: "foo"})
+            +textField({type: "text", placeholder: "ДД.ММ.ГГГГ", name: "foo", readonly: true})
         h3.h3-title.h3-title--margin--5 данные для входа в сервис
         .card__group-wrap
             +textField({type: "email", placeholder: "Email", name: "email-address"})
             +textField({type: "password", placeholder: "Пароль", name: "passsword"})
             +toggle({txt: "Получать спецпредложения"})
     .card__solo-el-wrap-big
-        +buttons({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "перейти к оплате", typeAttr: "button"})
+        +button({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "перейти к оплате", typeAttr: "button"})
     .card__btn-text-wrap
         p.card__text Уже есть аккаунт на Toxin
-        +buttons({type: {name: "btn--type--unfilled"}, text: "Войти", typeAttr: "button"})
+        +button({type: {name: "btn--type--unfilled"}, text: "Войти", linkType: true, linkPath: "signIn"})

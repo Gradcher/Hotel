@@ -5,23 +5,40 @@ mixin header (options)
         var userAuthorization = options.userAuthorization
         var userName = options.userName
 
-    .header
+    header.header
         .header__container
-            .header__wrap-for-el
-                a.logo(href="homepage")
-                    img.logo__img(src = require("/src/IMG/logo.png") alt="logo")
-            ul.header__navbar
-                li.header__navbar-item.header__navbar-item--highlighted О нас
-                li.header__navbar-item.header__navbar-item--dropdown Услуги
-                li.header__navbar-item
-                    a.header__navbar__link(href="jobs") Вакансии
-                li.header__navbar-item
-                    a.header__navbar__link(href="news") Новости
-                li.header__navbar-item.header__navbar-item--dropdown Соглашения
-            if userAuthorization
-                .header__user
-                    a.header__user-link(href="userpage")= userName
-            else
-                .header__wrap-for-el
-                    +buttons({type: {name: "btn--type--unfilled"}, text: "войти", typeAttr: "button"})
-                +buttons({type: {name: "btn--type--filled"}, text: "зарегистрироваться", typeAttr: "button"})
+            button.header__burger
+                span.header__burger-middle-line
+            a.logo(href="homepage")
+                img.logo__img(src = require("/src/IMG/logo.png") alt="logo")
+            .header__wrap-group-elements
+                ul.header__navbar
+                    li.header__navbar-item.header__navbar-item--highlighted
+                        a.header__navbar__link(href="aboutUs") О нас
+                    li.header__navbar-item.header__navbar-item--dropdown Услуги
+                        ul.header__navbar-sublist
+                            li.header__navbar-sublist-el
+                                a.header__navbar-sublist-link(href="Something1") Something1
+                            li.header__navbar-sublist-el
+                                a.header__navbar-sublist-link(href="Something2") Something2
+                            li.header__navbar-sublist-el
+                                a.header__navbar-sublist-link(href="Something3") Something3
+                    li.header__navbar-item
+                        a.header__navbar__link(href="jobs") Вакансии
+                    li.header__navbar-item
+                        a.header__navbar__link(href="news") Новости
+                    li.header__navbar-item.header__navbar-item--dropdown Соглашения
+                        ul.header__navbar-sublist
+                            li.header__navbar-sublist-el
+                                a.header__navbar-sublist-link(href="Something1") Something1
+                            li.header__navbar-sublist-el
+                                a.header__navbar-sublist-link(href="Something2") Something2
+                            li.header__navbar-sublist-el
+                                a.header__navbar-sublist-link(href="Something3") Something3
+                if userAuthorization
+                    .header__user
+                        a.header__user-link(href="userpage")= userName
+                else
+                    +button({type: {name: "btn--type--unfilled"}, text: "войти", linkType: true, linkPath: "signIn"})
+                    +button({type: {name: "btn--type--filled"}, text: "зарегистрироваться", linkType: true, linkPath: "registration"})
+            a.header__login-link(href="signIn.html")
