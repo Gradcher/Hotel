@@ -9,8 +9,10 @@ import '../PUG/includes/primitives/dropdown/dropdown';
 // Base blocks
 import '../PUG/includes/baseBlocks/expandableChboxList/expandableChboxList';
 import '../PUG/includes/baseBlocks/roomCard/roomCard';
-import './roomDetails';
-import './roomSearch';
+// Page components
+import '../PUG/includes/pageComponents/roomDetails/roomDetails';
+import '../PUG/includes/pageComponents/searchRoom/roomSearch';
+
 import './deviceDefenition';
 
 // Datepicker
@@ -22,7 +24,7 @@ import ru from 'vanillajs-datepicker/locales/ru';
 
 Object.assign(Datepicker.locales, ru);
 
-const calendars = document.querySelectorAll('input[name="foo"]');
+const calendars = document.querySelectorAll('input[name="calendar"]');
 if (calendars !== null) {
   // eslint-disable-next-line no-restricted-syntax
   for (const calendar of calendars) {
@@ -36,7 +38,7 @@ if (calendars !== null) {
   }
 }
 
-const rangeCalendars = document.querySelectorAll('.foo');
+const rangeCalendars = document.querySelectorAll('.range-calendar');
 if (rangeCalendars !== null) {
   // eslint-disable-next-line no-restricted-syntax
   for (const rangeCalendar of rangeCalendars) {
@@ -50,19 +52,17 @@ if (rangeCalendars !== null) {
   }
 }
 
-const rangeCalendarsOneBlock = document.querySelectorAll(
-  '.range-calendar--one-block'
-);
-if (rangeCalendarsOneBlock !== null) {
+const inlineRangeCalendars = document.querySelectorAll('.inline-range-calendar');
+if (inlineRangeCalendars !== null) {
   // eslint-disable-next-line no-restricted-syntax
-  for (const rangeCalendarOneBlock of rangeCalendarsOneBlock) {
-    const rangepickerOneBlock = new DateRangePicker(rangeCalendarOneBlock, {
+  for (const inlineRangeCalendar of inlineRangeCalendars) {
+    const inlineRangepicker = new DateRangePicker(inlineRangeCalendar, {
       clearBtn: true,
       language: 'ru',
       nextArrow: '',
       prevArrow: '',
       todayHighlight: true,
-      format: 'dd-M',
+      format: 'dd M',
     });
   }
 }

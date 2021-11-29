@@ -2,42 +2,48 @@
 @import "./utils/vars";
 @import "./utils/fonts";
 @import "./utils/mixins";
+@import "./utils/functions";
 @import "./utils/standartProp";
 
 // Primitives
-@import "../PUG/includes/primitives/toggle/Toggle";
 @import "../PUG/includes/primitives/radio/Radio";
-@import "../PUG/includes/primitives/checkbox/Checkbox";
+@import "../PUG/includes/primitives/toggle/Toggle";
 @import "../PUG/includes/primitives/likeBtn/LikeBtn";
 @import "../PUG/includes/primitives/rateBtn/RateBtn";
-@import "../PUG/includes/primitives/doubleSlider/DoubleSlider";
-@import "../PUG/includes/primitives/pagination/Pagination";
 @import "../PUG/includes/primitives/buttons/Buttons";
+@import "../PUG/includes/primitives/checkbox/Checkbox";
 @import "../PUG/includes/primitives/dropdown/Dropdown";
 @import "../PUG/includes/primitives/textField/TextField";
+@import "../PUG/includes/primitives/pagination/Pagination";
+@import "../PUG/includes/primitives/doubleSlider/DoubleSlider";
 @import "../PUG/includes/primitives/rangeCalendar/RangeCalendar";
+@import "../PUG/includes/primitives/inlineRangeCalendar/InlineRangeCalendar";
 
 // Base blocks
-@import "../PUG/includes/baseBlocks/expandableChboxList/ExpandableChboxList";
-@import "../PUG/includes/baseBlocks/chboxList/ChboxList";
-@import "../PUG/includes/baseBlocks/bulletList/BulletList";
-@import "../PUG/includes/baseBlocks/review/Review";
-@import "../PUG/includes/baseBlocks/advantages/Advantages";
-@import "../PUG/includes/baseBlocks/registrationCard/registrationCard";
-@import "../PUG/includes/baseBlocks/loginCard/LoginCard";
-@import "../PUG/includes/baseBlocks/roomSearchCard/RoomSearchCard";
-@import "../PUG/includes/baseBlocks/roomPriceCard/RoomPriceCard";
-@import "../PUG/includes/baseBlocks/roomCard/RoomCard";
 @import "../PUG/includes/baseBlocks/header/Header";
 @import "../PUG/includes/baseBlocks/footer/Footer";
+@import "../PUG/includes/baseBlocks/review/Review";
+@import "../PUG/includes/baseBlocks/roomCard/RoomCard";
+@import "../PUG/includes/baseBlocks/loginCard/LoginCard";
+@import "../PUG/includes/baseBlocks/advantages/Advantages";
+@import "../PUG/includes/baseBlocks/bulletList/BulletList";
+@import "../PUG/includes/baseBlocks/roomPriceCard/RoomPriceCard";
+@import "../PUG/includes/baseBlocks/roomSearchCard/RoomSearchCard";
+@import "../PUG/includes/baseBlocks/registrationCard/registrationCard";
+@import "../PUG/includes/baseBlocks/chboxList/ChboxList";
+@import "../PUG/includes/baseBlocks/expandableChboxList/ExpandableChboxList";
 
-// Layouts
-@import "../SCSS/layouts/Cards";
-@import "../SCSS/layouts/LandingPage";
-@import "../SCSS/layouts/Login";
-@import "../SCSS/layouts/SearchRoom";
-@import "../SCSS/layouts/RoomDetails";
-@import "../SCSS/layouts/HeadersAndFooters";
+// Page components
+// website components
+@import "../PUG/includes/pageComponents/cards/Cards";
+@import "../PUG/includes/pageComponents/colorAndType/ColorAndType";
+@import "../PUG/includes/pageComponents/formElements/FormElements";
+@import "../PUG/includes/pageComponents/headersAndFooters/HeadersAndFooters";
+// ui kit components
+@import "../PUG/includes/pageComponents/login/Login";
+@import "../PUG/includes/pageComponents/searchRoom/SearchRoom";
+@import "../PUG/includes/pageComponents/landingPage/LandingPage";
+@import "../PUG/includes/pageComponents/roomDetails/RoomDetails";
 
 // Datepicker
 /* Site — https://mymth.github.io/vanillajs-datepicker */
@@ -54,127 +60,15 @@
     }
 }
 
-.form-elements-wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    padding: 100px;
-    grid-column-gap: 20px;
-    justify-items: center;
-}
-
-.form-elements-grid-el {
-    margin: 0;
+.logo {
+    display: block;
+    min-width: 106px;
+    width: 106px;
 }
 
 .logo-sign-wrap {
     position: absolute;
     margin: 30px 0 0 30px;
-}
-
-.block-desc + .block-desc {
-    margin-top: 20px;
-}
-
-.wrap-color-and-type {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 100px;
-    grid-column-gap: 50px;
-}
-
-.color-pallete {
-    margin: 0 auto;
-
-    &__visual-repres {
-        border-radius: 6px;
-        margin-right: 40px;
-        height: 70px;
-        min-width: 70px;
-    }
-
-    &__item {
-        display: flex;
-
-        &:first-child .color-pallete__visual-repres {
-            background-color: $dark-shade-100per;
-        }
-
-        &:nth-child(2) .color-pallete__visual-repres {
-            background-color: $dark-shade-75per;
-        }
-
-        &:nth-child(3) .color-pallete__visual-repres {
-            background-color: $dark-shade-50per;
-        }
-
-        &:nth-child(4) .color-pallete__visual-repres {
-            background-color: $dark-shade-25per;
-        }
-
-        &:nth-child(5) .color-pallete__visual-repres {
-            background-color: $dark-shade-5per;
-        }
-
-        &:nth-child(6) .color-pallete__visual-repres {
-            background-color: $green;
-        }
-
-        &:last-child .color-pallete__visual-repres {
-            background-color: $purple;
-        }
-
-        & + & {
-            margin-top: 20px;
-        }
-    }
-
-    &__title {
-        max-width: 260px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    &__color-name {
-        font-weight: $font-weight-regular;
-    }
-}
-
-.font-sizes {
-    margin: 0 auto;
-
-    &__item {
-        display: flex;
-        align-items: flex-start;
-
-        & + & {
-            margin-top: 50px;
-        }
-    }
-
-    &__text-example {
-        max-width: 400px;
-
-        &--uppercase {
-            text-transform: uppercase;
-        }
-    }
-
-    &__size {
-        margin-right: 30px;
-        min-width: 40px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-weight: normal;
-        color: $dark-shade-25per;
-        text-align: right;
-    }
-}
-
-.logo {
-    display: block;
-    min-width: 106px;
-    width: 106px;
 }
 
 .wrapper {

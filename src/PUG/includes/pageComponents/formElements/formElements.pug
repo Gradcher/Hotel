@@ -1,0 +1,112 @@
+//- Primitives
+include ../../primitives/checkbox/checkbox.pug
+include ../../primitives/radio/radio.pug
+include ../../primitives/toggle/toggle.pug
+include ../../primitives/likeBtn/likeBtn.pug
+include ../../primitives/doubleSlider/doubleSlider.pug
+include ../../primitives/rateBtn/rateBtn.pug
+include ../../primitives/pagination/pagination.pug
+include ../../primitives/buttons/buttons.pug
+include ../../primitives/dropdown/dropdown.pug
+include ../../primitives/textField/textField.pug
+include ../../primitives/rangeCalendar/rangeCalendar.pug
+include ../../primitives/inlineRangeCalendar/inlineRangeCalendar.pug
+//- Base blocks
+include ../../baseBlocks/expandableChboxList/expandableChboxList.pug
+include ../../baseBlocks/chboxList/chboxList.pug
+include ../../baseBlocks/bulletList/bulletList.pug
+include ../../baseBlocks/review/review.pug
+include ../../baseBlocks/advantages/advantages.pug
+
+.logo-sign-wrap
+    img.logo-sign(src = require("../../SVG/logo.svg") alt="logo-sign")
+
+.form-elements-wrap
+    .form-elements-grid-el
+        .block-desc
+            +chboxList({listTitle: "checkbox buttons", checkboxArr: [
+                {txt: {main: "Можно курить"}, active: true},
+                {txt: {main: "Можно с питомцами"}, active: false},
+                {txt: {main: "Можно пригласить гостей (до 10 человек)"}, active: false}
+            ]})
+        .block-desc
+            h3.h3-title.h3-title--margin--16 radio buttons
+            +radio({txt: "Мужчина", name: "sex", active: true})
+            +radio({txt: "Женщина", name: "sex"})
+        .block-desc
+            h3.h3-title.h3-title--margin--16 toggle
+            +toggle({txt: "Получать спецпредложения", active: true})
+            +toggle({txt: "Получать спецпредложения"})
+        .block-desc
+            +chboxList({listTitle: "rich checkbox buttons", checkboxArr: [
+                {txt: {title: "Широкий коридор", main: "Ширина коридоров в номере не менее 91 см."}, active: false},
+                {txt: {title: "Помощник для инвалидов", main: "На 1 этаже вас встретит специалист и проводит до номера."}, active: false}
+            ]})
+        .block-desc
+            h3.h3-title.h3-title--margin--16 like button
+            +likeBtn({amount: 2})
+            +likeBtn({amount: 12, active: true})
+        .block-desc
+            +doubleSlider({title: "Range Slider", descriptionText: "", minValue: 0, maxValue: 15000, leftBaseValue: 5000, rightBaseValue: 10000})
+        .block-desc
+            h3.h3-title.h3-title--margin--16 rate button
+            +rateBtn({starAmount: 4, clickability: true})
+            +rateBtn({starAmount: 5, clickability: true})
+
+    .form-elements-grid-el
+        .block-desc
+            h3.h3-title.h3-title--margin--16 pagination
+            +pagination({txt: "1 – 12 из 100+ вариантов аренды"})
+        .block-desc
+            +review({clientAvatar: "reviewClientAvatar-1.jpg", likeBtn: {amount: 12, active: true}, txt: {clientName: "Мурад Сарафанов", publicationDate: "5 дней назад", review: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."}})
+        .block-desc
+            h3.h3-title.h3-title--margin--16 buttons
+            +button({type: {name: "btn--type--filled"}, text: "Click me", typeAttr: "button"})
+            +button({type: {name: "btn--type--unfilled"}, text: "Click me", typeAttr: "button"})
+            +button({type: {name: "btn--type--without-border"}, text: "Click me", typeAttr: "button"})
+            +button({type: {name: "btn--type--filled", value: "btn--type--filled--arrow"}, text: "перейти к оплате", typeAttr: "button"})
+        .block-desc
+            h3.h3-title.h3-title--margin--16 bullet list
+            +bulletList({elementsArr: [
+                {text: "Нельзя с питомцами"},
+                {text: "Без вечеринок и мероприятий"},
+                {text: "Время прибытия — после 13:00, а выезд до 12:00"}
+            ]})
+        .block-desc
+            +advantage({txt: {title: "Комфорт", descr: "Шумопоглощающие стены"}, nameIcon: "smile", underline: true})
+            +advantage({txt: {title: "Удобство", descr: "Окно в каждой из спален"}, nameIcon: "city", underline: true})
+
+    .form-elements-grid-el
+        .block-desc
+            +dropdown({dropdownTitle: "dropdown rooms", type: "rooms"})
+        .block-desc
+            +dropdown({dropdownTitle: "dropdown guests", type: "guests"})
+        .block-desc
+            +expandableChboxList({title: "expandable checkbox list", checkboxArr: [
+                {txt: {main: "Завтрак"}, active: false},
+                {txt: {main: "Письменный стол"}, active: true},
+                {txt: {main: "Стул для кормления"}, active: true},
+                {txt: {main: "Кроватка"}, active: true},
+                {txt: {main: "Телевизор"}, active: false},
+                {txt: {main: "Шампунь"}, active: false}
+            ]})
+        .block-desc
+            h3.h3-title.h3-title--margin--5 subscription text field
+            +textField({type: "email", modificator: "text-field--type--subscr", placeholder: "Email", name: "email-address"})
+        .block-desc
+            h3.h3-title.h3-title--margin--5 subscription text field
+            +textField({type: "email", placeholder: "Email", name: "email-address"})
+        .block-desc
+            h3.h3-title.h3-title--margin--5 subscription text field
+            +textField({type: "text", placeholder: "Имя", name: "user-name"})
+        .block-desc
+            h3.h3-title.h3-title--margin--5 subscription text field
+            +textField({type: "text", placeholder: "Фамилия", name: "user-second-name"})
+        .block-desc
+            h3.h3-title.h3-title--margin--5 subscription text field
+            +textField({type: "text", placeholder: "ДД.ММ.ГГГГ", name: "calendar", readonly: true})
+        .block-desc
+            h3.h3-title.h3-title--margin--5 subscription text field
+            +textField({type: "password", placeholder: "Пароль", name: "passsword"})
+        .block-desc
+            +inlineRangeCalendar({title: "filter date dropdown"})

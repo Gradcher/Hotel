@@ -1,7 +1,7 @@
 .text-field {
     position: relative;
-    width: 320px;
     max-width: 100%;
+    width: 320px;
     box-sizing: border-box;
     cursor: pointer; // works only for icon, because all part is input
 
@@ -45,23 +45,23 @@
             image: url("/src/SVG/color-arrow-ico.svg");
             repeat: no-repeat;
         }
-        /* from top to bottom, and from left to right (14px + 16px + 14px)
-           Using add space we expand area for cursor: pointer */
     }
 
     & > .text-field__input {
         padding: 0 calc(14px + 16px + 14px) 0 15px;
+
+        /* from top to bottom, and from left to right (14px + 16px + 14px)
+        Using add space we expand area for cursor: pointer */
     }
 }
 
 .text-field--type--range-calendar {
-    max-width: 100%;
-    min-width: 0;
-    width: 150px;
+    width: 100%;
 
     &::after {
         @include size(44px);
 
+        z-index: 1;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -74,5 +74,13 @@
             image: url("/src/SVG/angle-dark-ico.svg");
             repeat: no-repeat;
         }
+    }
+
+    & > input {
+        z-index: 2;
+        position: relative;
+        background-color: transparent;
+        padding-right: 35px;
+        text-overflow: ellipsis;
     }
 }

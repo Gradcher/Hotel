@@ -15,13 +15,7 @@ const isMobile = {
     return navigator.userAgent.match(/IEMobile/i);
   },
   any() {
-    return (
-      isMobile.Android() ||
-      isMobile.BlackBerry() ||
-      isMobile.IOS() ||
-      isMobile.Opera() ||
-      isMobile.Windows()
-    );
+    return isMobile.Android() || isMobile.BlackBerry() || isMobile.IOS() || isMobile.Opera() || isMobile.Windows();
   },
 };
 

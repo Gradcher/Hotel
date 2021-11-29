@@ -1,12 +1,11 @@
 .room-card {
+    display: block;
     min-width: 250px;
     width: 100%;
-    display: block;
+    transition-duration: $base-duration;
 
-    &:hover,
-    &:active,
-    &:visited {
-        color: $dark-shade-100per;
+    &:hover {
+        box-shadow: $room-card-hover-shadow;
     }
 
     &__slider {
@@ -15,25 +14,25 @@
         width: 100%;
         overflow: hidden;
         padding-top: 55.5%;
+    }
 
-        &::after {
-            @include size(100%);
+    &__slider-link::after {
+        @include size(100%);
 
-            z-index: 1;
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "";
-            opacity: 0;
-            background: linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.5) 0%,
-                rgba(255, 255, 255, 0) 15%,
-                rgba(255, 255, 255, 0) 85%,
-                rgba(0, 0, 0, 0.5) 100%
-            );
-            transition-duration: $base-duration;
-        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        opacity: 0;
+
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(255, 255, 255, 0) 15%,
+            rgba(255, 255, 255, 0) 85%,
+            rgba(0, 0, 0, 0.5) 100%
+        );
+        transition-duration: $base-duration;
     }
 
     &__slider-track {
@@ -45,7 +44,7 @@
         display: flex;
         list-style: none;
 
-        &.shifting {
+        &--shifting {
             transition: left $base-duration ease-out;
         }
     }
@@ -61,20 +60,16 @@
         object-fit: cover;
     }
 
-    &__slider-buttons {
-        z-index: 2;
-        position: absolute;
-        top: 50%;
-        opacity: 0;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        transition-duration: $base-duration;
-    }
+    // &__slider-buttons {
+    // }
 
     &__slider-btn {
         @include size(44px);
+
+        position: absolute;
+        top: 50%;
+        opacity: 0;
+        transition-duration: $base-duration;
 
         background: {
             position: center;
@@ -82,13 +77,18 @@
             repeat: no-repeat;
         }
 
+        &--right {
+            right: 0;
+            transform: translateY(-50%);
+        }
+
         &--left {
-            transform: rotate(180deg);
+            left: 0;
+            transform: translateY(-50%) rotate(180deg);
         }
     }
 
     &__slider-dots {
-        z-index: 2;
         position: absolute;
         bottom: 15px;
         right: 15px;
@@ -114,10 +114,17 @@
     }
 
     &__info {
+        display: block;
         border-radius: 0 0 $card-border-radius $card-border-radius;
         background-color: #fff;
         padding: 20px 18px;
         box-shadow: $light-shadow;
+
+        &:hover,
+        &:active,
+        &:visited {
+            color: $dark-shade-100per;
+        }
     }
 
     &__info-title-wrap {
@@ -174,21 +181,21 @@
 }
 
 .body--device--pc .room-card__slider:hover {
-    & .room-card__slider-buttons {
+    & .room-card__slider-btn {
         opacity: 1;
     }
 
-    &::after {
+    & .room-card__slider-link::after {
         opacity: 1;
     }
 }
 
 .body--device--mobile .room-card__slider {
-    & .room-card__slider-buttons {
+    & .room-card__slider-btn {
         opacity: 1;
     }
 
-    &::after {
+    & .room-card__slider-link::after {
         opacity: 1;
     }
 }

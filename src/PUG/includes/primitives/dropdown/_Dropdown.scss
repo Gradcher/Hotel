@@ -20,7 +20,7 @@
     }
 
     &__content {
-        z-index: 999;
+        z-index: 5;
         position: absolute;
         display: none;
         border: 1px solid $dark-shade-25per;
@@ -35,14 +35,15 @@
     }
 
     &__header {
-        background-color: #fff;
         position: relative;
         border: 1px solid $dark-shade-25per;
         border-radius: 4px 4px 0 0;
         background-color: #fff;
+        background-color: #fff;
+        height: 44px;
         width: 100%;
         box-sizing: border-box;
-        padding: 7px 44px 7px 15px;
+        padding: 0 44px 0 15px;
         cursor: pointer;
         transition-duration: $base-duration;
 

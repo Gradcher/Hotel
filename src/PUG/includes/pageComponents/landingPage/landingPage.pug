@@ -1,0 +1,10 @@
+include ../../baseBlocks/header/header.pug
+
+.wrapper
+    +header({userAuthorization: false})
+    main.content
+        .landing
+            .landing__container
+                include ../../baseBlocks/roomSearchCard/roomSearchCard.pug
+                p.landing__text Лучшие номера для вашей работы, отдыха и просто вдохновения
+    include ../../baseBlocks/footer/footer.pug

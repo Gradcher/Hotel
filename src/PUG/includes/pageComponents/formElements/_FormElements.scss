@@ -1,0 +1,16 @@
+.form-elements-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 100px;
+    grid-column-gap: 20px;
+    justify-items: center;
+}
+
+.form-elements-grid-el {
+    margin: 0;
+}
+
+.block-desc + .block-desc {
+    margin-top: 20px;
+}

@@ -1,0 +1,62 @@
+//- Primitives
+include ../../primitives/likeBtn/likeBtn.pug
+//- Base blocks
+include ../../baseBlocks/header/header.pug
+include ../../baseBlocks/review/review.pug
+include ../../baseBlocks/bulletList/bulletList.pug
+include ../../baseBlocks/advantages/advantages.pug
+
+.wrapper
+    +header({userAuthorization: false})
+    main.content
+        .room-details-gallery
+            .room-details-gallery__container
+                img.room-details-gallery__image(src=require('/src/IMG/room-details-1.jpg') alt="room-details-1")
+                img.room-details-gallery__image(src=require('/src/IMG/room-details-2.jpg') alt="room-details-2")
+                img.room-details-gallery__image(src=require('/src/IMG/room-details-3.jpg') alt="room-details-3")
+        .room-details-info
+            .room-details-info__container
+                .room-details-info__left-side-container
+                    .room-details-info__sub-container
+                        .room-details-info__room-advantages
+                            h2.room-details-info__title Сведения о номере
+                            +advantage({txt: {title: "Комфорт", descr: "Шумопоглощающие стены"}, nameIcon: "smile", underline: true})
+                            +advantage({txt: {title: "Удобство", descr: "Окно в каждой из спален"}, nameIcon: "city", underline: true})
+                            +advantage({txt: {title: "Уют", descr: "Номер оснащён камином"}, nameIcon: "fire", underline: false})
+                        .room-details-info__room-impression
+                            h2.room-details-info__title Впечатления от номера
+                            .room-details-info__impression-descrp
+                                .impression-cirle
+                                    .impression-cirle__container
+                                        .impression-cirle__slice-circle
+                                            .impression-cirle__circle
+                                        .impression-cirle__slice-circle
+                                            .impression-cirle__circle
+                                        .impression-cirle__slice-circle
+                                            .impression-cirle__circle
+                                        .impression-cirle__inner-circle
+                                            p.impression-cirle__title 260
+                                            h2.impression-cirle__text голосов
+                                ul.room-details-info__impression-list
+                                    li.room-details-info__impression-list-item Великолепно
+                                    li.room-details-info__impression-list-item Хорошо
+                                    li.room-details-info__impression-list-item Удовлетворительно
+                                    li.room-details-info__impression-list-item Разочарован
+                    .room-details-info__review
+                        h2.room-details-info__title.room-details-info__title--review Отзывы посетителей номера
+                        span.room-details-info__review-amount#reviewAmount
+                        +review({clientAvatar: "reviewClientAvatar-1.jpg", likeBtn: {amount: 12, active: true}, txt: {clientName: "Мурад Сарафанов", publicationDate: "5 дней назад", review: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."}})
+                        +review({clientAvatar: "reviewClientAvatar-2.jpg", likeBtn: {amount: 2, active: false}, txt: {clientName: "Патрисия Стёклышкова", publicationDate: "Неделю назад", review: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"}})
+                    .room-details-info__sub-container
+                        .room-details-info__rules
+                            h2.room-details-info__title Правила
+                            +bulletList({elementsArr: [
+                            {text: "Нельзя с питомцами"},
+                            {text: "Без вечеринок и мероприятий"},
+                            {text: "Время прибытия — после 13:00, а выезд до 12:00"}
+                            ]})
+                        .room-details-info__cancel
+                            h2.room-details-info__title Отмена
+                            P.room-details-info__text Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+                include ../../baseBlocks/roomPriceCard/roomPriceCard.pug
+    include ../../baseBlocks/footer/footer.pug

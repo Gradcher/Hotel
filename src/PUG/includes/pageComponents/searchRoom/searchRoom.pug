@@ -1,0 +1,57 @@
+//- Primitives
+include ../../primitives/dropdown/dropdown.pug
+include ../../primitives/buttons/buttons.pug
+include ../../primitives/checkbox/checkbox.pug
+include ../../primitives/pagination/pagination.pug
+include ../../primitives/doubleSlider/doubleSlider.pug
+include ../../primitives/inlineRangeCalendar/inlineRangeCalendar.pug
+//- Base blocks
+include ../../baseBlocks/header/header.pug
+include ../../baseBlocks/chboxList/chboxList.pug
+include ../../baseBlocks/expandableChboxList/expandableChboxList.pug
+
+
+.wrapper
+    +header({userAuthorization: false})
+    main.content
+        .search-room
+            .search-room__container
+                aside.search-room__sidebar
+                    .search-room__sidebar-container
+                        .search-room__sidebar-el-wrap
+                            +inlineRangeCalendar({title: "даты пребывания в отеле"})
+                        .search-room__sidebar-el-wrap
+                            +dropdown({dropdownTitle: "Гости", type: "guests"})
+                        .search-room__sidebar-el-wrap
+                            +doubleSlider({title: "Диапазон цены", descriptionText: "Стоимость за сутки пребывания в номере", minValue: 0, maxValue: 15000, leftBaseValue: 5000, rightBaseValue: 10000})
+                        .search-room__sidebar-el-wrap
+                            +chboxList({listTitle: "Правила дома", checkboxArr: [
+                                {txt: {main: "Можно курить"}, active: false},
+                                {txt: {main: "Можно с питомцами"}, active: true},
+                                {txt: {main: "Можно пригласить гостей (до 10 человек)"}, active: true}
+                            ]})
+                        .search-room__sidebar-el-wrap
+                            +chboxList({listTitle: "Доступность", checkboxArr: [
+                                {txt: {title: "Широкий коридор", main: "Ширина коридоров в номере не менее 91 см."}, active: false},
+                                {txt: {title: "Помощник для инвалидов", main: "На 1 этаже вас встретит специалист и проводит до номера."}, active: false}
+                            ]})
+                        .search-room__sidebar-el-wrap
+                            +dropdown({dropdownTitle: "Удобства номера", type: "rooms"})
+                        .search-room__sidebar-el-wrap
+                            +expandableChboxList({title: "Дополнительные удобства", checkboxArr: [
+                                {txt: {main: "Завтрак"}, active: false},
+                                {txt: {main: "Письменный стол"}, active: true},
+                                {txt: {main: "Стул для кормления"}, active: true},
+                                {txt: {main: "Кроватка"}, active: true},
+                                {txt: {main: "Телевизор"}, active: false},
+                                {txt: {main: "Шампунь"}, active: false}
+                            ]})
+                        .search-room__sidebar-el-wrap
+                            +button({type: {name: "btn--type--without-border"}, text: "Close", typeAttr: "button", id: "btnCloseSidebar"})
+                .search-room__content
+                    .search-room__cards-top-wrap
+                        h1.search-room__title Номера, которые мы для вас подобрали
+                        button.search-room__option-btn(type="button")
+                    ul.search-room__room-cards-list
+                    +pagination({txt: "1 – 12 из 100+ вариантов аренды"})
+    include ../../baseBlocks/footer/footer.pug

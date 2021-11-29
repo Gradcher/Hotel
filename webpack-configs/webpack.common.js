@@ -8,10 +8,8 @@ const PATHS = {
   assets: 'assets/',
 };
 
-const PAGES_DIR = `${PATHS.src}/PUG/layouts`;
-const PAGES = fs
-  .readdirSync(PAGES_DIR)
-  .filter((fileName) => fileName.endsWith('.pug'));
+const PAGES_DIR = `${PATHS.src}/PUG/pages`;
+const PAGES = fs.readdirSync(PAGES_DIR).filter((fileName) => fileName.endsWith('.pug'));
 
 module.exports = {
   externals: {

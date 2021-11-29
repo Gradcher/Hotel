@@ -1,0 +1,11 @@
+include ../textField/textField.pug
+
+mixin inlineRangeCalendar (options)
+    -
+        var title = options.title
+
+    h3.h3-title.h3-title--margin--5= title
+    .inline-range-calendar
+        input.inline-range-calendar__input(type="text" placeholder="ДД.ММ" name="range-calendar-start" readonly)
+        span.inline-range-calendar__line -
+        input.inline-range-calendar__input(type="text" placeholder="ДД.ММ" name="range-calendar-end" readonly)

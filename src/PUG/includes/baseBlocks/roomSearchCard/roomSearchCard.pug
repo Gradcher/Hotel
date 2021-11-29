@@ -9,4 +9,4 @@ include ../../primitives/buttons/buttons.pug
             +rangeCalendar({text: {start: "прибытие", end: "выезд"}})
         .card__solo-el-wrap-big
             +dropdown({dropdownTitle: "гости", type: "guests"})
-        +button({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "подобрать номер", typeAttr: "button"})
+        +button({type: {name: "btn--type--filled", value: "btn--type--filled--arrow", functionality: ""}, text: "подобрать номер", linkType: true, linkPath: "searchRoom"})

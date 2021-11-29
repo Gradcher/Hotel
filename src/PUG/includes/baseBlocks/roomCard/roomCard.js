@@ -256,28 +256,22 @@ class RoomCatalogPage {
         // for back <- transferring from start to end
       } else if (slidesLength * 2 - 1 < dotIndex) {
         dots[0].classList.add('room-card__slider-dot--active');
-        dots[slidesLength - 1].classList.remove(
-          'room-card__slider-dot--active'
-        );
+        dots[slidesLength - 1].classList.remove('room-card__slider-dot--active');
 
         dotIndex -= slidesLength;
         /* slidesLength * 2 - 1 < dotIndex - condition for the element thast is out of
       slidesLength from right */
         // for forward -> transferring from end to start
       } else {
-        dots[Math.abs(dotIndex % slidesLength)].classList.add(
-          'room-card__slider-dot--active'
-        );
-        dots[Math.abs((dotIndex % slidesLength) - el)].classList.remove(
-          'room-card__slider-dot--active'
-        );
+        dots[Math.abs(dotIndex % slidesLength)].classList.add('room-card__slider-dot--active');
+        dots[Math.abs((dotIndex % slidesLength) - el)].classList.remove('room-card__slider-dot--active');
       }
     }
 
     shiftDot(1);
 
     function shiftSlide(dir, action) {
-      sliderTrack.classList.add('shifting');
+      sliderTrack.classList.add('room-card__slider-track--shifting');
 
       if (allowShift) {
         if (!action) {
@@ -297,7 +291,7 @@ class RoomCatalogPage {
     }
 
     function checkIndex() {
-      sliderTrack.classList.remove('shifting');
+      sliderTrack.classList.remove('room-card__slider-track--shifting');
 
       if (index === -1) {
         sliderTrack.style.left = `${-(slidesLength * slideSize)}px`;
@@ -341,55 +335,46 @@ class RoomCatalogPage {
         }
       }
 
-      roomCatalogList = `<a class="room-card" id="${element.id}" href="${
-        element.link
-      }">
+      roomCatalogList = `<div class="room-card" id="${element.id}">
       <div class="room-card__slider">
-        <ul class="room-card__slider-track">
-          ${sliderImagesList}
-        </ul>
-        <div class="room-card__slider-buttons">
-          <button
-            class="room-card__slider-btn room-card__slider-btn--left"
-            type="button"
-          ></button>
-          <button
-            class="room-card__slider-btn room-card__slider-btn--right"
-            type="button"
-          ></button>
-        </div>
-        <ul class="room-card__slider-dots">
-          ${sliderDotsList}
-        </ul>
-      </div>
-      <div class="room-card__info">
-        <div class="room-card__info-title-wrap">
-          <div class="room-card__info-room-number-wrap">
-            <h1 class="room-card__info-title">${element.roomNumber}</h1>
-            <span class="room-card__info-type">${
-              element.luxRoom ? 'люкс' : ''
-            }</span>
+        <a class="room-card__slider-link" href="${element.link}">
+            <ul class="room-card__slider-track">
+                ${sliderImagesList}
+            </ul>
+        </a>
+          <div class="room-card__slider-buttons">
+              <button class="room-card__slider-btn room-card__slider-btn--left" type="button"></button>
+              <button class="room-card__slider-btn room-card__slider-btn--right" type="button"></button>
           </div>
-          <span class="room-card__info-day-price">
-            <b class="room-card__info-day-price room-card__info-day-price--highlighted"> ${
-              element.roomDayPrice
-            }₽ </b> в сутки
-          </span>
-        </div>
-        <div class="room-card__info-line"></div>
-        <div class="room-card__info-review">
-          <ul class="rating">
-            ${ratingStars}
+          <ul class="room-card__slider-dots">
+              ${sliderDotsList}
           </ul>
-          <span class="room-card__day-price">
-            <b class="room-card__day-price room-card__day-price--highlighted">
-              ${element.reviewAmount}
-            </b>
-            Отзывов
-          </span>
-        </div>
       </div>
-      </a>`;
+      <a class="room-card__info" href="${element.link}">
+          <div class="room-card__info-title-wrap">
+              <div class="room-card__info-room-number-wrap">
+                  <h1 class="room-card__info-title">${element.roomNumber}</h1>
+                  <span class="room-card__info-type">${element.luxRoom ? 'люкс' : ''}</span>
+              </div>
+              <span class="room-card__info-day-price">
+                  <b class="room-card__info-day-price room-card__info-day-price--highlighted">
+                      ${element.roomDayPrice}₽
+                  </b>
+                  в сутки
+              </span>
+          </div>
+          <div class="room-card__info-line"></div>
+          <div class="room-card__info-review">
+              <ul class="rating">
+                  ${ratingStars}
+              </ul>
+              <span class="room-card__day-price">
+                  <b class="room-card__day-price room-card__day-price--highlighted"> ${element.reviewAmount} </b>
+                  Отзывов
+              </span>
+          </div>
+      </a>
+  </div>`;
 
       this._roomList.insertAdjacentHTML('beforeend', roomCatalogList);
 
@@ -399,12 +384,8 @@ class RoomCatalogPage {
       const sliderTrack = roomCard.querySelector('.room-card__slider-track');
       const sliderDots = roomCard.querySelector('.room-card__slider-dots');
 
-      const btnPrev = roomCard.querySelector(
-        '.room-card__slider-btn.room-card__slider-btn--left'
-      );
-      const btnNext = roomCard.querySelector(
-        '.room-card__slider-btn.room-card__slider-btn--right'
-      );
+      const btnPrev = roomCard.querySelector('.room-card__slider-btn.room-card__slider-btn--left');
+      const btnNext = roomCard.querySelector('.room-card__slider-btn.room-card__slider-btn--right');
 
       this.#slide(sliderContainer, sliderTrack, sliderDots, btnPrev, btnNext);
       this.#getRoomCardsArr.push(roomCard);

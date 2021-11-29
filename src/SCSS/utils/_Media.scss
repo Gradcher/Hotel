@@ -268,6 +268,10 @@
     .card__title {
         font-size: 20px;
     }
+
+    .range-calendar > .range-calendar__item + .range-calendar__item {
+        margin-left: 10px;
+    }
 }
 
 @media all and (max-width: 360px) {
@@ -284,6 +288,7 @@
 }
 
 /* landingPage  */
+
 @media all and (max-width: 980px) {
     .landing {
         height: auto;
