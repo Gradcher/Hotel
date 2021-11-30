@@ -13,7 +13,7 @@ import '../PUG/includes/baseBlocks/roomCard/roomCard';
 import '../PUG/includes/pageComponents/roomDetails/roomDetails';
 import '../PUG/includes/pageComponents/searchRoom/roomSearch';
 
-import './deviceDefenition';
+import './deviceDefinition';
 
 // Datepicker
 /* Site — https://mymth.github.io/vanillajs-datepicker */
