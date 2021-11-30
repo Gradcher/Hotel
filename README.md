@@ -1,1 +1,1 @@
-# https://gradcher.github.io/Hotel/dist/index
+### *Link to the site* — https://gradcher.github.io/Hotel/dist/index
