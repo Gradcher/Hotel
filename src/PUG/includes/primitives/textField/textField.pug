@@ -8,7 +8,7 @@ mixin textField (options)
 
     if typeValue === "password"
         .text-field(class=modificator)
-            input.text-field__input(type=typeValue placeholder=placeholderValue name=nameValue autocomplete="on")
+            input.text-field__input(type=typeValue placeholder=placeholderValue name=nameValue autocomplete="off")
     else
         if readonly
             .text-field(class=modificator)

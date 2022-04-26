@@ -1,9 +1,25 @@
-let user = {
-  name: 'Ketrin',
+const user = {
+  name: 'John',
+  surname: 'Smith',
+
+  set fullName(value) {
+    [this.name, this.surname] = value.split(' ');
+  },
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  },
 };
-let client = {};
 
-delete user?.name; // delete user.name if user exists
-delete client?.age.g; // the same — delete undefined;
+const admin = {
+  __proto__: user,
+  isAdmin: true,
+};
 
-console.log(user.name); // undefined
+// getter triggers!
+console.log(admin.fullName); // John Smith (*)
+console.log(admin.hasOwnProperty('name'));
+
+// setter triggers!
+admin.fullName = 'Alice Cooper'; // (**)
+console.log(admin.hasOwnProperty('name'));
